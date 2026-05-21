@@ -1374,7 +1374,7 @@ ABOUT
 
 .about-section {
     position: relative;
-    padding: 140px 7vw;
+    padding: 140px 7vw 150px;
     overflow: hidden;
     background: var(--bg-color);
 }
@@ -1382,22 +1382,19 @@ ABOUT
 .about-bg-text {
     position: absolute;
     left: -2vw;
-    top: 60px;
+    top: 10px;
     font-family: var(--font-display);
-    font-size: 17vw;
+    font-size: 20vw;
     line-height: 1;
     color: var(--soft-text);
-    opacity: 0.08;
+    opacity: 0.13;
     pointer-events: none;
 }
 
 .about-wrapper {
     position: relative;
     z-index: 2;
-    display: grid;
-    grid-template-columns: 1.05fr 0.7fr;
-    gap: 80px;
-    align-items: center;
+    display: block;
 }
 
 .section-mini-label,
@@ -1411,6 +1408,7 @@ ABOUT
 }
 
 .about-title {
+    max-width: 1040px;
     font-family: var(--font-display);
     font-size: clamp(3.8rem, 7vw, 8rem);
     line-height: 0.88;
@@ -1418,13 +1416,16 @@ ABOUT
     letter-spacing: -0.05em;
 }
 
-.about-description {
-    max-width: 720px;
-    margin-top: 38px;
+.about-copy {
+    max-width: 980px;
+    margin-top: 58px;
 }
 
-.about-description p,
-.about-right p {
+.about-description {
+    max-width: 820px;
+}
+
+.about-description p {
     margin-bottom: 18px;
     font-size: 1rem;
     line-height: 1.8;
@@ -1472,6 +1473,16 @@ ABOUT
     height: 620px;
     overflow: hidden;
     background: var(--secondary-bg);
+}
+
+.portrait-wrap.about-landscape {
+    width: 100vw;
+    height: clamp(420px, 48vw, 760px);
+    margin: 72px 0 0 calc(50% - 50vw);
+}
+
+.legacy-about-image {
+    display: none;
 }
 
 .portrait-wrap img {

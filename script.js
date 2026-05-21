@@ -2046,7 +2046,7 @@ function initScrollAnimations() {
         }
     });
 
-    gsap.from(".about-left", {
+    gsap.from(".about-header", {
         y: 90,
         opacity: 0,
         duration: 1.1,
@@ -2057,7 +2057,7 @@ function initScrollAnimations() {
         }
     });
 
-    gsap.from(".about-right", {
+    gsap.from(".about-landscape", {
         y: 90,
         opacity: 0,
         duration: 1.1,
@@ -2068,7 +2068,7 @@ function initScrollAnimations() {
         }
     });
 
-    gsap.from(".about-tags span", {
+    gsap.from(".about-copy, .about-tags span", {
         y: 24,
         opacity: 0,
         stagger: 0.05,
