@@ -54,9 +54,6 @@ const transitionOverlay = document.querySelector(".transition-overlay");
 
 const videoCursorPreview = document.querySelector(".video-cursor-preview");
 const cursorPreviewVideo = document.querySelector(".cursor-preview-video");
-const cursorPreviewImage = document.querySelector(".cursor-preview-image");
-const cursorPreviewTitle = document.querySelector(".image-preview-label h4");
-const cursorPreviewMeta = document.querySelector(".image-preview-label p");
 
 const mouseLight = document.querySelector(".mouse-light");
 const projectGrid = document.getElementById("projectGrid");
@@ -68,7 +65,7 @@ GLOBAL STATE
 const isTouchDevice =
     "ontouchstart" in window ||
     navigator.maxTouchPoints > 0 ||
-    window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    window.innerWidth < 768;
 
 let lenis = null;
 let menuOpen = false;
@@ -1742,24 +1739,8 @@ function bindRenderedProjectInteractions() {
                 video.play().catch(() => {});
             }
 
-            if (videoCursorPreview && !isTouchDevice) {
-                const source = video ? video.querySelector("source") : null;
-
-                if (poster && cursorPreviewImage) {
-                    cursorPreviewImage.src = poster.currentSrc || poster.src;
-                    cursorPreviewImage.alt = poster.alt || "Project preview";
-                }
-
-                if (cursorPreviewTitle) {
-                    cursorPreviewTitle.textContent =
-                        poster?.alt || "Preview";
-                }
-
-                if (cursorPreviewMeta) {
-                    cursorPreviewMeta.textContent =
-                        card.querySelector(".project-meta")?.textContent?.trim() ||
-                        "Move through project";
-                }
+            if (videoCursorPreview && cursorPreviewVideo && video && !isTouchDevice) {
+                const source = video.querySelector("source");
 
                 if (source) {
                     cursorPreviewVideo.src = source.src;
@@ -1794,33 +1775,19 @@ function bindRenderedProjectInteractions() {
                 video.currentTime = 0;
             }
 
-            if (videoCursorPreview && !isTouchDevice) {
-                const resetCursorPreview = () => {
-                    videoCursorPreview.classList.remove("active");
-
-                    if (cursorPreviewVideo) {
+            if (videoCursorPreview && cursorPreviewVideo && typeof gsap !== "undefined") {
+                gsap.to(videoCursorPreview, {
+                    opacity: 0,
+                    scale: 0.92,
+                    duration: 0.35,
+                    ease: "power3.out",
+                    onComplete: () => {
+                        videoCursorPreview.classList.remove("active");
                         cursorPreviewVideo.pause();
                         cursorPreviewVideo.removeAttribute("src");
                         cursorPreviewVideo.load();
                     }
-
-                    if (cursorPreviewImage) {
-                        cursorPreviewImage.removeAttribute("src");
-                        cursorPreviewImage.alt = "";
-                    }
-                };
-
-                if (typeof gsap !== "undefined") {
-                    gsap.to(videoCursorPreview, {
-                        opacity: 0,
-                        scale: 0.92,
-                        duration: 0.35,
-                        ease: "power3.out",
-                        onComplete: resetCursorPreview
-                    });
-                } else {
-                    resetCursorPreview();
-                }
+                });
             }
 
             if (typeof gsap !== "undefined") {
