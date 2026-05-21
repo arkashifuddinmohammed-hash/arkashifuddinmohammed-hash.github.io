@@ -65,7 +65,7 @@ GLOBAL STATE
 const isTouchDevice =
     "ontouchstart" in window ||
     navigator.maxTouchPoints > 0 ||
-    window.innerWidth < 768;
+    window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
 let lenis = null;
 let menuOpen = false;

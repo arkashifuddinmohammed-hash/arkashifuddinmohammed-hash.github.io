@@ -2059,20 +2059,6 @@ RESPONSIVE MOBILE
         font-size: 15px;
     }
 
-    body,
-    a,
-    button,
-    .filter-btn,
-    .project-item {
-        cursor: auto;
-    }
-
-    .cursor,
-    .mouse-light,
-    .video-cursor-preview {
-        display: none !important;
-    }
-
     .navbar {
         height: 76px;
         padding: 0 20px;
@@ -2116,10 +2102,6 @@ RESPONSIVE MOBILE
 
     .hero-description {
         max-width: 94%;
-    }
-
-    .identity-bubble {
-        display: none;
     }
 
     .scroll-line,
@@ -2251,6 +2233,24 @@ RESPONSIVE MOBILE
 
     .final-type-section h1 {
         font-size: clamp(5rem, 26vw, 8rem);
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+
+    body,
+    a,
+    button,
+    .filter-btn,
+    .project-item {
+        cursor: auto;
+    }
+
+    .cursor,
+    .mouse-light,
+    .video-cursor-preview,
+    .identity-bubble {
+        display: none !important;
     }
 }
 
