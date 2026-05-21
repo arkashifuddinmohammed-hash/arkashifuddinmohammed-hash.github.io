@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <meta
+    name="description"
+    content="Portfolio of Kashif Mohammed — Architect, Visual Thinker, Founder of Answer & Co.">
+
+    <title>
+        Kashif Mohammed | Architect
+    </title>
+
+    <link
+    rel="icon"
+    href="assets/images/favicon.png">
+
+    <link
+    rel="preload"
+    as="video"
+    href="assets/videos/hero.mp4">
+
+    <link
+    rel="preload"
+    as="audio"
+    href="assets/audio/ambient-01.mp3">
+
+    <link
+    rel="preload"
+    as="image"
+    href="assets/images/built1.jpg">
+
+    <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet">
+
+    <link
+    rel="stylesheet"
+    href="style.css">
+
+</head>
+
+<body>
+
+<!-- =========================================================
+LOADER
+========================================================= -->
+
+<div class="architect-loader">
+
+    <div class="loader-grain"></div>
+
+    <div class="loader-observation fact-box">
+
+        <span class="observation-index fact-label">
+            Observation 01
+        </span>
+
+        <p class="observation-text fact-text">
+            Roman concrete structures can strengthen over time through seawater reactions.
+        </p>
+
+    </div>
+
+    <div class="sketch-scene">
+
+        <div class="architect-figure">
+
+            <div class="head"></div>
+
+            <div class="body"></div>
+
+            <div class="arm"></div>
+
+        </div>
+
+        <svg
+        class="drawing-svg"
+        viewBox="0 0 600 300">
+
+            <path
+            class="draw-path path-1"
+            d="M40 220 L220 220"></path>
+
+            <path
+            class="draw-path path-2"
+            d="M220 220 L220 120"></path>
+
+            <path
+            class="draw-path path-3"
+            d="M220 120 L420 120"></path>
+
+            <path
+            class="draw-path path-4"
+            d="M420 120 L420 220"></path>
+
+            <path
+            class="draw-path path-5"
+            d="M420 220 L560 220"></path>
+
+        </svg>
+
+    </div>
+
+    <div class="loader-text-wrap">
+
+        <span class="loader-small">
+            Archive Initializing
+        </span>
+
+        <h1 class="loader-logo">
+            KM
+        </h1>
+
+    </div>
+
+</div>
+
+<!-- =========================================================
+GLOBAL UI
+========================================================= -->
+
+<div class="scroll-progress"></div>
+
+<div class="noise-overlay"></div>
+
+<div class="mouse-light"></div>
+
+<!-- VIDEO PREVIEW THAT FOLLOWS CURSOR -->
+
+<div class="video-cursor-preview">
+
+    <video
+    class="cursor-preview-video"
+    muted
+    loop
+    playsinline
+    preload="metadata">
+    </video>
+
+    <div class="image-preview-overlay"></div>
+
+    <div class="image-preview-label">
+
+        <h4>
+            Preview
+        </h4>
+
+        <p>
+            Enter Space
+        </p>
+
+    </div>
+
+</div>
+
+<div class="transition-overlay">
+
+    <div class="transition-text">
+        Entering Archive
+    </div>
+
+</div>
+
+<!-- ARCHITECT ICON-ONLY CURSOR -->
+
+<div class="cursor">
+
+    <div class="cursor-shape"></div>
+
+    <span class="cursor-icon"></span>
+
+    <span class="cursor-label"></span>
+
+</div>
+
+<!-- =========================================================
+NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+    <a
+    href="#hero"
+    class="logo"
+    data-cursor="HOME">
+
+        KM
+
+    </a>
+
+    <div class="nav-controls">
+
+        <button
+        class="project-sound-toggle muted"
+        data-cursor="AUDIO"
+        aria-label="Toggle ambient audio">
+
+            <span class="sound-wave"></span>
+            <span class="sound-wave"></span>
+            <span class="sound-wave"></span>
+            <span class="sound-wave"></span>
+
+        </button>
+
+        <button
+        class="theme-toggle"
+        data-cursor="THEME"
+        aria-label="Toggle theme">
+
+            ☼
+
+        </button>
+
+        <button
+        class="menu-toggle"
+        data-cursor="MENU"
+        aria-label="Open menu">
+
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- =========================================================
+FULLSCREEN MENU
+========================================================= -->
+
+<div class="fullscreen-menu">
+
+    <div class="menu-background"></div>
+
+    <img
+    src="assets/images/menu-work.jpg"
+    alt="Menu preview"
+    class="menu-preview-image">
+
+    <div class="menu-wrapper">
+
+        <div class="menu-left">
+
+            <ul class="menu-nav">
+
+                <li class="menu-item">
+
+                    <a
+                    href="#hero"
+                    class="menu-link"
+                    data-preview="home"
+                    data-cursor="HOME">
+
+                        <span class="menu-index">01</span>
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li class="menu-item">
+
+                    <a
+                    href="#work"
+                    class="menu-link"
+                    data-preview="work"
+                    data-cursor="WORK">
+
+                        <span class="menu-index">02</span>
+                        Selected Works
+
+                    </a>
+
+                </li>
+
+                <li class="menu-item">
+
+                    <a
+                    href="#about"
+                    class="menu-link"
+                    data-preview="about"
+                    data-cursor="ABOUT">
+
+                        <span class="menu-index">03</span>
+                        About
+
+                    </a>
+
+                </li>
+
+                <li class="menu-item">
+
+                    <a
+                    href="#studio"
+                    class="menu-link"
+                    data-preview="studio"
+                    data-cursor="STUDIO">
+
+                        <span class="menu-index">04</span>
+                        Answer & Co
+
+                    </a>
+
+                </li>
+
+                <li class="menu-item">
+
+                    <a
+                    href="#contact"
+                    class="menu-link"
+                    data-preview="contact"
+                    data-cursor="CONTACT">
+
+                        <span class="menu-index">05</span>
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="menu-right">
+
+            <div class="menu-preview-overlay"></div>
+
+        </div>
+
+    </div>
+
+    <div class="menu-footer">
+
+        <span>
+            Spatial Navigation
+        </span>
+
+        <span>
+            Kashif Mohammed
+        </span>
+
+    </div>
+
+</div>
+
+<!-- =========================================================
+HERO
+========================================================= -->
+
+<section
+class="hero"
+id="hero">
+
+    <video
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    id="bg-video">
+
+        <source
+        src="assets/videos/hero.mp4"
+        type="video/mp4">
+
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <!-- Architect identity card matches the random cursor architect -->
+
+    <div class="identity-bubble">
+
+        <h4 class="identity-name"></h4>
+
+        <p class="identity-meta"></p>
+
+    </div>
+
+    <div class="overlay hero-content">
+
+        <span class="hero-label hero-index">
+            Architectural Portfolio 2026
+        </span>
+
+        <h1>
+            Kashif<br>
+            Mohammed
+        </h1>
+
+        <p class="subtitle hero-subtitle">
+            Architect • Visual Thinker • Spatial Storyteller
+        </p>
+
+        <p class="tagline hero-description">
+            Exploring architecture through atmosphere, narrative, urban systems,
+            cinematic space, and emotionally immersive environments.
+        </p>
+
+        <div class="hero-cta-wrap">
+
+            <a
+            href="#work"
+            class="hero-btn magnet-btn"
+            data-cursor="ENTER">
+
+                Enter Archive
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-line"></div>
+
+    <div class="scroll-text">
+        Scroll to Explore
+    </div>
+
+</section>
+
+<!-- =========================================================
+SELECTED WORKS
+========================================================= -->
+
+<section
+class="work-layout"
+id="work">
+
+    <div class="work-bg-text">
+        WORK
+    </div>
+
+    <aside class="work-sidebar">
+
+        <span class="sidebar-label sidebar-small-text">
+            Curated Archive
+        </span>
+
+        <h2>
+            Selected<br>
+            Works
+        </h2>
+
+        <ul>
+
+            <li
+            class="filter-btn active"
+            data-filter="built"
+            data-cursor="BUILT">
+
+                Built Space
+
+            </li>
+
+            <li
+            class="filter-btn"
+            data-filter="interiors"
+            data-cursor="SPACE">
+
+                Interiors
+
+            </li>
+
+            <li
+            class="filter-btn"
+            data-filter="urban"
+            data-cursor="URBAN">
+
+                Urban Systems
+
+            </li>
+
+            <li
+            class="filter-btn"
+            data-filter="research"
+            data-cursor="RESEARCH">
+
+                Research
+
+            </li>
+
+            <li
+            class="filter-btn"
+            data-filter="visual"
+            data-cursor="VISUAL">
+
+                Visual Narratives
+
+            </li>
+
+            <li
+            class="filter-btn"
+            data-filter="concept"
+            data-cursor="CONCEPT">
+
+                Conceptual
+
+            </li>
+
+            <li
+            class="filter-btn"
+            data-filter="live"
+            data-cursor="LIVE">
+
+                Live Projects
+
+            </li>
+
+            <li
+            class="filter-btn"
+            data-filter="studio"
+            data-cursor="STUDIO">
+
+                Answer & Co
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <div
+    class="work-content"
+    id="projectGrid">
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+ABOUT
+========================================================= -->
+
+<section
+class="about-section"
+id="about">
+
+    <div class="about-bg-text">
+        ARCHITECT
+    </div>
+
+    <div class="about-wrapper">
+
+        <div class="about-left">
+
+            <span class="section-mini-label section-small-title">
+                About
+            </span>
+
+            <h2 class="about-title">
+                Designing through atmosphere, systems, memory, and narrative.
+            </h2>
+
+            <div class="about-description">
+
+                <p>
+                    Kashif Mohammed is an architect from NIT Calicut exploring architecture through cinematic space,
+                    emotional atmosphere, conceptual systems, and layered storytelling.
+                </p>
+
+                <p>
+                    His work investigates the relationship between architecture and perception — where spaces are experienced
+                    not only physically, but emotionally and psychologically.
+                </p>
+
+            </div>
+
+            <div class="about-tags">
+
+                <span>Urban Systems</span>
+                <span>Spatial Narrative</span>
+                <span>Visual Storytelling</span>
+                <span>Atmospheric Design</span>
+                <span>Cinematic Architecture</span>
+                <span>Experimental Interfaces</span>
+                <span>Adaptive Reuse</span>
+                <span>Conceptual Visualization</span>
+
+            </div>
+
+            <div class="about-quote">
+
+                <p>
+                    “Space is not just built. It is remembered.”
+                </p>
+
+                <span class="about-signature">
+                    Kashif Mohammed
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="about-right">
+
+            <div class="portrait-wrap">
+
+                <img
+                src="assets/images/portrait.jpg"
+                alt="Kashif Mohammed">
+
+                <div class="portrait-overlay"></div>
+
+                <div class="portrait-meta">
+
+                    <h4>
+                        Kashif Mohammed
+                    </h4>
+
+                    <p>
+                        Architect • Visual Thinker
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+STUDIO
+========================================================= -->
+
+<section
+class="studio-section"
+id="studio">
+
+    <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="studio-video">
+
+        <source
+        src="assets/videos/hero.mp4"
+        type="video/mp4">
+
+    </video>
+
+    <div class="studio-overlay"></div>
+
+    <div class="studio-grid studio-content">
+
+        <div class="studio-left">
+
+            <span class="section-mini-label section-small-title">
+                Studio
+            </span>
+
+            <h2 class="studio-title">
+                Answer & Co
+            </h2>
+
+            <p class="studio-subtitle">
+                A multidisciplinary spatial studio exploring architecture, interiors, visual systems,
+                cinematic narratives, and emotionally immersive environments.
+            </p>
+
+            <a
+            href="https://instagram.com/answer_and_co_"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="studio-social-link"
+            data-cursor="INSTAGRAM"
+            aria-label="Answer & Co Instagram">
+
+                <i class="ri-instagram-line"></i>
+                <span>
+                    answer_and_co_
+                </span>
+
+            </a>
+
+        </div>
+
+        <div class="studio-right">
+
+            <div class="studio-block">
+
+                <h3>
+                    Architecture
+                </h3>
+
+                <p>
+                    Spatial design shaped through material, light, form, context, and lived experience.
+                </p>
+
+            </div>
+
+            <div class="studio-block">
+
+                <h3>
+                    Interiors
+                </h3>
+
+                <p>
+                    Calm, atmospheric interiors composed through texture, lighting, and emotional clarity.
+                </p>
+
+            </div>
+
+            <div class="studio-block">
+
+                <h3>
+                    Visual Systems
+                </h3>
+
+                <p>
+                    Cinematic visual storytelling, concept representation, and identity-led design systems.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="studio-stats">
+
+        <div class="studio-stat">
+
+            <h3>
+                25+
+            </h3>
+
+            <span>
+                Concept Explorations
+            </span>
+
+        </div>
+
+        <div class="studio-stat">
+
+            <h3>
+                10+
+            </h3>
+
+            <span>
+                Live Projects
+            </span>
+
+        </div>
+
+        <div class="studio-stat">
+
+            <h3>
+                5
+            </h3>
+
+            <span>
+                Research Domains
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+EXPERIENCE STRIP
+========================================================= -->
+
+<section class="experience-strip">
+
+    <div class="experience-track">
+
+        <span>NIT CALICUT</span>
+        <span>AMIT & ASSOCIATES GOA</span>
+        <span>ANSWER & CO</span>
+        <span>AGRITECTURE RESEARCH</span>
+        <span>VISUAL STORYTELLING</span>
+        <span>UX DESIGN</span>
+        <span>ISRO INTERNSHIP</span>
+        <span>SPATIAL CINEMA</span>
+        <span>URBAN SYSTEMS</span>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+QUOTE
+========================================================= -->
+
+<section class="quote-section">
+
+    <div class="quote-wrap">
+
+        <p class="quote-line">
+            “Architecture is the thoughtful making of space.”
+        </p>
+
+        <span class="quote-author">
+            — Louis Kahn
+        </span>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+CONTACT
+========================================================= -->
+
+<section
+class="contact-section"
+id="contact">
+
+    <div class="contact-wrapper">
+
+        <div class="contact-left">
+
+            <span class="section-mini-label section-small-title">
+                Contact
+            </span>
+
+            <h2 class="contact-title">
+                Let’s build meaningful experiences, spaces, and stories.
+            </h2>
+
+            <p class="contact-subtext">
+                Available for architecture, interiors, conceptual environments, visual storytelling,
+                and multidisciplinary collaborations.
+            </p>
+
+            <a
+            href="mailto:ar.kashifuddinmohammed@gmail.com"
+            class="contact-mail"
+            data-cursor="MAIL">
+
+                <span class="contact-mail-line"></span>
+
+                ar.kashifuddinmohammed@gmail.com
+
+            </a>
+
+        </div>
+
+        <div class="contact-right">
+
+            <a
+            href="mailto:ar.kashifuddinmohammed@gmail.com"
+            class="contact-card"
+            data-cursor="MAIL">
+
+                <div class="contact-icon">
+                    <i class="ri-mail-line"></i>
+                </div>
+
+                <h3>
+                    Email
+                </h3>
+
+                <p>
+                    Begin a conversation about architecture, design, or collaboration.
+                </p>
+
+                <span class="contact-link">
+                    Open Mail <span class="contact-link-arrow">→</span>
+                </span>
+
+            </a>
+
+            <a
+            href="https://instagram.com/ar.kashifuddin"
+            target="_blank"
+            class="contact-card"
+            data-cursor="INSTAGRAM">
+
+                <div class="contact-icon">
+                    <i class="ri-instagram-line"></i>
+                </div>
+
+                <h3>
+                    Instagram
+                </h3>
+
+                <p>
+                    Visual stories, process, architecture, and cinematic explorations.
+                </p>
+
+                <span class="contact-link">
+                    Visit Instagram <span class="contact-link-arrow">→</span>
+                </span>
+
+            </a>
+
+            <a
+            href="https://www.linkedin.com/in/ar-kashifuddin-mohammed"
+            target="_blank"
+            class="contact-card"
+            data-cursor="LINKEDIN">
+
+                <div class="contact-icon">
+                    <i class="ri-linkedin-line"></i>
+                </div>
+
+                <h3>
+                    LinkedIn
+                </h3>
+
+                <p>
+                    Professional profile, work history, and collaborations.
+                </p>
+
+                <span class="contact-link">
+                    Open LinkedIn <span class="contact-link-arrow">→</span>
+                </span>
+
+            </a>
+
+            <a
+            href="https://wa.me/918341999669"
+            target="_blank"
+            class="contact-card"
+            data-cursor="WHATSAPP">
+
+                <div class="contact-icon">
+                    <i class="ri-whatsapp-line"></i>
+                </div>
+
+                <h3>
+                    WhatsApp
+                </h3>
+
+                <p>
+                    Quick conversation for project discussions and enquiries.
+                </p>
+
+                <span class="contact-link">
+                    Start Chat <span class="contact-link-arrow">→</span>
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+FINAL TYPE
+========================================================= -->
+
+<section class="final-type-section">
+
+    <h1>
+        SPACE<br>
+        IS<br>
+        MEMORY
+    </h1>
+
+</section>
+
+<!-- =========================================================
+FOOTER
+========================================================= -->
+
+<footer class="site-footer minimal-footer">
+
+    <div class="footer-left">
+
+        <h3 class="footer-name">
+            Kashif Mohammed
+        </h3>
+
+        <p class="footer-text">
+            Architect • Visual Thinker • Spatial Storyteller
+        </p>
+
+    </div>
+
+    <div class="footer-center footer-right">
+
+        <a
+        href="#hero"
+        class="footer-link">
+
+            Home
+
+        </a>
+
+        <a
+        href="#work"
+        class="footer-link">
+
+            Work
+
+        </a>
+
+        <a
+        href="#about"
+        class="footer-link">
+
+            About
+
+        </a>
+
+        <a
+        href="#studio"
+        class="footer-link">
+
+            Studio
+
+        </a>
+
+        <a
+        href="#contact"
+        class="footer-link">
+
+            Contact
+
+        </a>
+
+    </div>
+
+    <div class="footer-right">
+
+        <span class="footer-text">
+            © 2026
+        </span>
+
+    </div>
+
+</footer>
+
+<!-- =========================================================
+GALLERY MODAL
+========================================================= -->
+
+<div class="gallery-modal">
+
+    <button
+    class="close-gallery"
+    aria-label="Close gallery">
+
+        ✕
+
+    </button>
+
+    <img
+    class="gallery-modal-img"
+    src=""
+    alt="Expanded Project">
+
+</div>
+
+<!-- =========================================================
+HIDDEN FACTS
+========================================================= -->
+
+<div
+class="hidden-facts"
+aria-hidden="true">
+
+    <span>
+        Buckminster Fuller once proposed floating cities above clouds.
+    </span>
+
+    <span>
+        Antoni Gaudí used hanging chains to calculate structural curves.
+    </span>
+
+    <span>
+        Ancient Persian wind towers cooled buildings without electricity.
+    </span>
+
+    <span>
+        Louis Kahn asked buildings what they wanted to become.
+    </span>
+
+    <span>
+        Zaha Hadid originally studied mathematics before architecture.
+    </span>
+
+    <span>
+        Japanese Metabolists imagined cities as living organisms.
+    </span>
+
+</div>
+
+<!-- =========================================================
+AMBIENT AUDIO
+JS randomly selects one track from:
+assets/audio/ambient-01.mp3
+assets/audio/ambient-02.mp3
+assets/audio/ambient-03.mp3
+assets/audio/ambient-04.mp3
+========================================================= -->
+
+<audio
+id="ambient-audio"
+preload="auto"
+loop>
+</audio>
+
+<!-- =========================================================
+SCRIPTS
+========================================================= -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+</script>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+</script>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js">
+</script>
+
+<script
+src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js">
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
