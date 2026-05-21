@@ -1990,18 +1990,18 @@ if (identityBubble) {
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
+                duration: 0.6,
                 ease: "power3.out",
-                delay: 1.1
+                delay: 0.4
             }
         );
 
         gsap.to(identityBubble, {
             opacity: 0,
             y: -12,
-            duration: 0.8,
+            duration: 0.6,
             ease: "power3.inOut",
-            delay: 6,
+            delay: 5,
             onComplete: () => {
                 identityBubble.classList.remove("active");
             }
@@ -2009,7 +2009,7 @@ if (identityBubble) {
     } else {
         setTimeout(() => {
             identityBubble.classList.remove("active");
-        }, 6000);
+        }, 5000);
     }
 }
 
