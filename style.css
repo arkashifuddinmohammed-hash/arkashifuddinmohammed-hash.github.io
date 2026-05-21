@@ -429,6 +429,25 @@ Hover state: keeps the previous large circular cursor forms.
     transition: opacity 0.25s ease;
 }
 
+.cursor.architect-cursor .cursor-shape {
+    width: 54px;
+    height: 54px;
+    border-color: rgba(255,255,255,0.34);
+    background: rgba(255,255,255,0.05);
+    opacity: 1;
+}
+
+.cursor.architect-cursor .cursor-icon {
+    top: 43%;
+}
+
+.cursor.architect-cursor .cursor-label {
+    top: 70%;
+    opacity: 0.78;
+    font-size: 0.46rem;
+    letter-spacing: 0.12em;
+}
+
 .cursor.active-link .cursor-shape {
     width: 82px;
     height: 82px;
@@ -444,6 +463,9 @@ Hover state: keeps the previous large circular cursor forms.
 }
 
 .cursor.active-link .cursor-label {
+    top: 50%;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
     opacity: 1;
 }
 
@@ -464,6 +486,9 @@ Hover state: keeps the previous large circular cursor forms.
 }
 
 .cursor.active-project .cursor-label {
+    top: 50%;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
     opacity: 1;
 }
 
@@ -1009,20 +1034,34 @@ ARCHITECT IDENTITY CARD
 ========================================================= */
 
 .identity-bubble {
-    position: absolute;
-    right: 7vw;
-    top: 54vh;
-    z-index: 4;
-    max-width: 260px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 997;
+    width: 286px;
+    max-width: calc(100vw - 36px);
     padding: 18px 20px;
     border: 1px solid var(--line-color);
-    background: rgba(245,242,236,0.62);
+    background: rgba(13,13,13,0.82);
+    color: #ffffff;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.28);
     backdrop-filter: blur(16px);
+    pointer-events: none;
     opacity: 0;
+    visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    transition:
+        visibility 0.25s ease,
+        opacity 0.25s ease;
 }
 
 body.dark-mode .identity-bubble {
-    background: rgba(13,13,13,0.66);
+    background: rgba(13,13,13,0.82);
+}
+
+.identity-bubble.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .identity-bubble h4 {
@@ -1035,7 +1074,7 @@ body.dark-mode .identity-bubble {
     margin-top: 6px;
     font-size: 0.74rem;
     line-height: 1.5;
-    color: var(--muted-text);
+    color: rgba(255,255,255,0.68);
 }
 
 /* =========================================================

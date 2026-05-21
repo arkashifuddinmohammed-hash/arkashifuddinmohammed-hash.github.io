@@ -200,11 +200,19 @@ function setRandomArchitectCursor() {
     cursorIcon.textContent = selectedArchitectCursor.icon;
 
     if (cursor) {
+        cursor.classList.add("architect-cursor");
         cursor.setAttribute("data-architect", selectedArchitectCursor.architect);
         cursor.setAttribute(
             "title",
             `${selectedArchitectCursor.architect} — ${selectedArchitectCursor.idea}`
         );
+    }
+
+    if (cursorLabel) {
+        cursorLabel.textContent = selectedArchitectCursor.architect
+            .split(" ")
+            .at(-1)
+            .toUpperCase();
     }
 }
 
@@ -862,7 +870,9 @@ function bindGeneralCursorTargets() {
             );
 
             if (cursorLabel) {
-                cursorLabel.textContent = "";
+                cursorLabel.textContent = selectedArchitectCursor
+                    ? selectedArchitectCursor.architect.split(" ").at(-1).toUpperCase()
+                    : "";
             }
         });
     });
@@ -1766,7 +1776,9 @@ function bindRenderedProjectInteractions() {
                 cursor.classList.remove("active-project", "magnetic");
 
                 if (cursorLabel) {
-                    cursorLabel.textContent = "";
+                    cursorLabel.textContent = selectedArchitectCursor
+                        ? selectedArchitectCursor.architect.split(" ").at(-1).toUpperCase()
+                        : "";
                 }
             }
 
@@ -1973,28 +1985,42 @@ if (selectedArchitectCursor) {
     }
 }
 
-if (identityBubble && typeof gsap !== "undefined") {
-    gsap.fromTo(
-        identityBubble,
-        {
-            opacity: 0,
-            y: 20
-        },
-        {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            delay: 2
-        }
-    );
+if (identityBubble && !isTouchDevice) {
+    let identityX = window.innerWidth / 2 + 82;
+    let identityY = window.innerHeight / 2 - 22;
 
-    gsap.to(identityBubble, {
-        opacity: 0,
-        y: -12,
-        duration: 0.8,
-        ease: "power3.inOut",
-        delay: 6
+    function positionIdentityBubble(event) {
+        identityX = Math.min(event.clientX + 82, window.innerWidth - 292);
+        identityY = Math.min(event.clientY - 22, window.innerHeight - 116);
+
+        identityX = Math.max(identityX, 18);
+        identityY = Math.max(identityY, 18);
+
+        if (typeof gsap !== "undefined") {
+            gsap.to(identityBubble, {
+                x: identityX,
+                y: identityY,
+                opacity: 1,
+                duration: 0.28,
+                ease: "power3.out"
+            });
+        } else {
+            identityBubble.style.transform =
+                `translate3d(${identityX}px, ${identityY}px, 0)`;
+            identityBubble.style.opacity = "1";
+        }
+
+        identityBubble.classList.add("active");
+    }
+
+    window.addEventListener("mousemove", positionIdentityBubble);
+
+    document.addEventListener("mouseleave", () => {
+        identityBubble.classList.remove("active");
+    });
+
+    document.addEventListener("mouseenter", () => {
+        identityBubble.classList.add("active");
     });
 }
 
