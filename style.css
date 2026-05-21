@@ -429,25 +429,6 @@ Hover state: keeps the previous large circular cursor forms.
     transition: opacity 0.25s ease;
 }
 
-.cursor.architect-cursor .cursor-shape {
-    width: 54px;
-    height: 54px;
-    border-color: rgba(255,255,255,0.34);
-    background: rgba(255,255,255,0.05);
-    opacity: 1;
-}
-
-.cursor.architect-cursor .cursor-icon {
-    top: 43%;
-}
-
-.cursor.architect-cursor .cursor-label {
-    top: 70%;
-    opacity: 0.78;
-    font-size: 0.46rem;
-    letter-spacing: 0.12em;
-}
-
 .cursor.active-link .cursor-shape {
     width: 82px;
     height: 82px;
@@ -1034,13 +1015,13 @@ ARCHITECT IDENTITY CARD
 ========================================================= */
 
 .identity-bubble {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 997;
+    position: absolute;
+    right: 5.4vw;
+    top: 63vh;
+    z-index: 4;
     width: 286px;
     max-width: calc(100vw - 36px);
-    padding: 18px 20px;
+    padding: 22px 26px;
     border: 1px solid var(--line-color);
     background: rgba(13,13,13,0.82);
     color: #ffffff;
@@ -1049,7 +1030,6 @@ ARCHITECT IDENTITY CARD
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
-    transform: translate3d(0, 0, 0);
     transition:
         visibility 0.25s ease,
         opacity 0.25s ease;
@@ -1066,7 +1046,7 @@ body.dark-mode .identity-bubble {
 
 .identity-bubble h4 {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: 1.45rem;
     font-weight: 400;
 }
 
@@ -2047,6 +2027,11 @@ RESPONSIVE TABLET
         right: 5vw;
         opacity: 0.16;
     }
+
+    .identity-bubble {
+        right: 6vw;
+        top: 58vh;
+    }
 }
 
 /* =========================================================
@@ -2107,6 +2092,14 @@ RESPONSIVE MOBILE
     .scroll-line,
     .scroll-text {
         display: none;
+    }
+
+    .identity-bubble {
+        left: 22px;
+        right: auto;
+        top: auto;
+        bottom: 120px;
+        width: min(286px, calc(100vw - 44px));
     }
 
     .loader-observation {

@@ -200,7 +200,6 @@ function setRandomArchitectCursor() {
     cursorIcon.textContent = selectedArchitectCursor.icon;
 
     if (cursor) {
-        cursor.classList.add("architect-cursor");
         cursor.setAttribute("data-architect", selectedArchitectCursor.architect);
         cursor.setAttribute(
             "title",
@@ -209,10 +208,7 @@ function setRandomArchitectCursor() {
     }
 
     if (cursorLabel) {
-        cursorLabel.textContent = selectedArchitectCursor.architect
-            .split(" ")
-            .at(-1)
-            .toUpperCase();
+        cursorLabel.textContent = "";
     }
 }
 
@@ -870,9 +866,7 @@ function bindGeneralCursorTargets() {
             );
 
             if (cursorLabel) {
-                cursorLabel.textContent = selectedArchitectCursor
-                    ? selectedArchitectCursor.architect.split(" ").at(-1).toUpperCase()
-                    : "";
+                cursorLabel.textContent = "";
             }
         });
     });
@@ -1776,9 +1770,7 @@ function bindRenderedProjectInteractions() {
                 cursor.classList.remove("active-project", "magnetic");
 
                 if (cursorLabel) {
-                    cursorLabel.textContent = selectedArchitectCursor
-                        ? selectedArchitectCursor.architect.split(" ").at(-1).toUpperCase()
-                        : "";
+                    cursorLabel.textContent = "";
                 }
             }
 
@@ -1985,43 +1977,40 @@ if (selectedArchitectCursor) {
     }
 }
 
-if (identityBubble && !isTouchDevice) {
-    let identityX = window.innerWidth / 2 + 82;
-    let identityY = window.innerHeight / 2 - 22;
+if (identityBubble) {
+    identityBubble.classList.add("active");
 
-    function positionIdentityBubble(event) {
-        identityX = Math.min(event.clientX + 82, window.innerWidth - 292);
-        identityY = Math.min(event.clientY - 22, window.innerHeight - 116);
-
-        identityX = Math.max(identityX, 18);
-        identityY = Math.max(identityY, 18);
-
-        if (typeof gsap !== "undefined") {
-            gsap.to(identityBubble, {
-                x: identityX,
-                y: identityY,
+    if (typeof gsap !== "undefined") {
+        gsap.fromTo(
+            identityBubble,
+            {
+                opacity: 0,
+                y: 18
+            },
+            {
                 opacity: 1,
-                duration: 0.28,
-                ease: "power3.out"
-            });
-        } else {
-            identityBubble.style.transform =
-                `translate3d(${identityX}px, ${identityY}px, 0)`;
-            identityBubble.style.opacity = "1";
-        }
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out",
+                delay: 1.1
+            }
+        );
 
-        identityBubble.classList.add("active");
+        gsap.to(identityBubble, {
+            opacity: 0,
+            y: -12,
+            duration: 0.8,
+            ease: "power3.inOut",
+            delay: 6,
+            onComplete: () => {
+                identityBubble.classList.remove("active");
+            }
+        });
+    } else {
+        setTimeout(() => {
+            identityBubble.classList.remove("active");
+        }, 6000);
     }
-
-    window.addEventListener("mousemove", positionIdentityBubble);
-
-    document.addEventListener("mouseleave", () => {
-        identityBubble.classList.remove("active");
-    });
-
-    document.addEventListener("mouseenter", () => {
-        identityBubble.classList.add("active");
-    });
 }
 
 /* =========================================================
