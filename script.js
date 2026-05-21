@@ -2001,7 +2001,7 @@ if (identityBubble) {
             y: -12,
             duration: 0.6,
             ease: "power3.inOut",
-            delay: 10,
+            delay: 20,
             onComplete: () => {
                 identityBubble.classList.remove("active");
             }
@@ -2009,7 +2009,7 @@ if (identityBubble) {
     } else {
         setTimeout(() => {
             identityBubble.classList.remove("active");
-        }, 10000);
+        }, 20000);
     }
 }
 
