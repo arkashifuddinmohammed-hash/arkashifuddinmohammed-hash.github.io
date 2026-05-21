@@ -2236,7 +2236,7 @@ RESPONSIVE MOBILE
     }
 }
 
-@media (hover: none), (pointer: coarse) {
+@media (hover: none) and (pointer: coarse) {
 
     body,
     a,

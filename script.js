@@ -62,10 +62,10 @@ const projectGrid = document.getElementById("projectGrid");
 GLOBAL STATE
 ========================================================= */
 
-const isTouchDevice =
-    "ontouchstart" in window ||
-    navigator.maxTouchPoints > 0 ||
-    window.matchMedia("(hover: none), (pointer: coarse)").matches;
+const hasFinePointer =
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+const isTouchDevice = !hasFinePointer;
 
 let lenis = null;
 let menuOpen = false;
