@@ -71,7 +71,8 @@ THEME VARIABLES
 
 :root {
     --bg-color: #f5f2ec;
-    --text-color: #111111;
+    --rich-black: #0b0d0e;
+    --text-color: var(--rich-black);
     --muted-text: rgba(17, 17, 17, 0.58);
     --soft-text: rgba(17, 17, 17, 0.36);
 
@@ -91,7 +92,7 @@ THEME VARIABLES
 }
 
 body.dark-mode {
-    --bg-color: #0d0d0d;
+    --bg-color: var(--rich-black);
     --text-color: #f5f2ec;
     --muted-text: rgba(245, 242, 236, 0.62);
     --soft-text: rgba(245, 242, 236, 0.36);
@@ -112,7 +113,7 @@ GLOBAL
 
 ::selection {
     background: var(--accent);
-    color: #000;
+    color: var(--rich-black);
 }
 
 body.menu-open,
@@ -136,7 +137,7 @@ GLOBAL ATMOSPHERE
     opacity: 0.04;
     background-image:
         radial-gradient(circle at 20% 20%, rgba(255,255,255,0.7) 0 1px, transparent 1px),
-        radial-gradient(circle at 80% 40%, rgba(0,0,0,0.5) 0 1px, transparent 1px);
+        radial-gradient(circle at 80% 40%, rgba(11,13,14,0.5) 0 1px, transparent 1px);
     background-size: 4px 4px;
     mix-blend-mode: overlay;
 }
@@ -891,13 +892,13 @@ HERO
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 68% 40%, transparent 0 20%, rgba(0,0,0,0.18) 52%),
+        radial-gradient(circle at 68% 40%, transparent 0 20%, rgba(11,13,14,0.18) 52%),
         linear-gradient(90deg, var(--bg-color) 0%, rgba(245,242,236,0.74) 32%, rgba(245,242,236,0.1) 100%);
 }
 
 body.dark-mode .hero-overlay {
     background:
-        radial-gradient(circle at 68% 40%, transparent 0 20%, rgba(0,0,0,0.52) 52%),
+        radial-gradient(circle at 68% 40%, transparent 0 20%, rgba(11,13,14,0.52) 52%),
         linear-gradient(90deg, var(--bg-color) 0%, rgba(13,13,13,0.78) 35%, rgba(13,13,13,0.08) 100%);
 }
 
@@ -1025,7 +1026,7 @@ ARCHITECT IDENTITY CARD
     border: 1px solid var(--line-color);
     background: rgba(13,13,13,0.82);
     color: #ffffff;
-    box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+    box-shadow: 0 24px 70px rgba(11,13,14,0.28);
     backdrop-filter: blur(16px);
     pointer-events: none;
     opacity: 0;
@@ -1084,7 +1085,7 @@ VIDEO CURSOR PREVIEW
     border: 1px solid var(--line-color);
     border-radius: 14px;
     background: var(--secondary-bg);
-    box-shadow: 0 24px 70px rgba(0,0,0,0.32);
+    box-shadow: 0 24px 70px rgba(11,13,14,0.32);
     transform: translate3d(-50%, -50%, 0) scale(0.92);
 }
 
@@ -1102,7 +1103,7 @@ VIDEO CURSOR PREVIEW
 .image-preview-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.18);
+    background: rgba(11,13,14,0.18);
 }
 
 .image-preview-label {
@@ -1266,7 +1267,7 @@ SELECTED WORKS
     position: absolute;
     inset: 0;
     z-index: 4;
-    background: linear-gradient(to top, rgba(0,0,0,0.48), transparent 52%);
+    background: linear-gradient(to top, rgba(11,13,14,0.48), transparent 52%);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
@@ -1482,7 +1483,7 @@ ABOUT
 .portrait-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.48), transparent 60%);
+    background: linear-gradient(to top, rgba(11,13,14,0.48), transparent 60%);
 }
 
 .portrait-meta {
@@ -1531,8 +1532,8 @@ STUDIO
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(90deg, rgba(0,0,0,0.82), rgba(0,0,0,0.42)),
-        radial-gradient(circle at 70% 50%, transparent, rgba(0,0,0,0.8));
+        linear-gradient(90deg, rgba(11,13,14,0.82), rgba(11,13,14,0.42)),
+        radial-gradient(circle at 70% 50%, transparent, rgba(11,13,14,0.8));
 }
 
 .studio-grid,
@@ -1567,7 +1568,7 @@ STUDIO
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: var(--bg-color);
+    color: rgba(245,242,236,0.86);
     font-size: 0.78rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1578,16 +1579,16 @@ STUDIO
     height: 38px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(245,242,236,0.42);
+    border: 1px solid rgba(245,242,236,0.5);
     border-radius: 50%;
     font-size: 1.08rem;
     transition: var(--transition-smooth);
 }
 
 .studio-social-link:hover i {
-    background: var(--bg-color);
-    color: var(--text-color);
-    border-color: var(--bg-color);
+    background: rgba(245,242,236,0.92);
+    color: var(--rich-black);
+    border-color: rgba(245,242,236,0.92);
 }
 
 .studio-right {
@@ -1903,7 +1904,7 @@ GALLERY MODAL
     position: fixed;
     inset: 0;
     z-index: 9500;
-    background: rgba(0,0,0,0.92);
+    background: rgba(11,13,14,0.92);
     display: grid;
     place-items: center;
     opacity: 0;
