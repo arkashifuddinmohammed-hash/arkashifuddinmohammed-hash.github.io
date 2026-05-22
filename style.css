@@ -1409,22 +1409,27 @@ ABOUT
 }
 
 .about-title {
-    max-width: 1040px;
+    max-width: 1240px;
     font-family: var(--font-display);
-    font-size: clamp(3.8rem, 7vw, 8rem);
+    font-size: clamp(4rem, 7.8vw, 9rem);
     line-height: 0.88;
     font-weight: 400;
     letter-spacing: -0.05em;
+    text-wrap: balance;
 }
 
 .about-copy {
-    max-width: 980px;
+    width: 100%;
+    max-width: 1320px;
     margin-top: 58px;
 }
 
 .about-description {
-    max-width: 820px;
+    max-width: none;
     margin-top: 38px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 38px;
 }
 
 .about-description p {
@@ -1439,6 +1444,7 @@ ABOUT
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 34px;
+    max-width: 1180px;
 }
 
 .about-tags span {
@@ -1452,7 +1458,9 @@ ABOUT
 }
 
 .about-quote {
-    margin-top: 42px;
+    width: min(620px, 48vw);
+    margin-top: 52px;
+    margin-left: auto;
     padding-left: 24px;
     border-left: 1px solid var(--strong-line);
 }
@@ -2055,6 +2063,16 @@ RESPONSIVE TABLET
         right: 6vw;
         top: 58vh;
     }
+
+    .about-description {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .about-quote {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 /* =========================================================
@@ -2185,6 +2203,14 @@ RESPONSIVE MOBILE
 
     .portrait-wrap {
         height: 440px;
+    }
+
+    .about-title {
+        font-size: 3.4rem;
+    }
+
+    .about-copy {
+        margin-top: 44px;
     }
 
     .studio-stats {
