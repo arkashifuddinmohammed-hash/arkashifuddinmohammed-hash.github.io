@@ -1040,7 +1040,7 @@ iframe {
   .gallery-feature img,
   .shop-gallery img {
     min-height: auto;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 11;
     border-radius: 18px;
   }
 
@@ -1093,6 +1093,17 @@ iframe {
   .section {
     padding-top: 68px;
     padding-bottom: 68px;
+  }
+
+  .founder-section,
+  .gallery-section {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
+
+  .closing-journey {
+    padding-top: 0;
+    padding-bottom: 48px;
   }
 
   .section-heading {
