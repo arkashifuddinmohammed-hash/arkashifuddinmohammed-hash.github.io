@@ -403,18 +403,16 @@ dd {
 
 .founder-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 18px;
-  align-items: stretch;
+  gap: 20px;
 }
 
 .founder-card {
   display: grid;
-  grid-template-columns: minmax(190px, 0.75fr) 1fr;
-  gap: 24px;
+  grid-template-columns: minmax(320px, 0.48fr) 1fr;
+  gap: 36px;
   align-items: center;
-  min-height: 360px;
-  padding: 18px;
+  min-height: 420px;
+  padding: 22px;
   border: 1px solid var(--line);
   border-radius: 28px;
   background: var(--surface);
@@ -423,7 +421,7 @@ dd {
 .founder-card img {
   width: 100%;
   height: 100%;
-  min-height: 300px;
+  min-height: 380px;
   border-radius: 22px;
   object-fit: cover;
   object-position: center;
@@ -442,6 +440,17 @@ dd {
 
 .technician-card img {
   object-position: center;
+}
+
+.technician-card {
+  grid-template-columns: minmax(180px, 0.24fr) 1fr;
+  min-height: 230px;
+  padding: 18px;
+}
+
+.technician-card img {
+  min-height: 190px;
+  max-height: 230px;
 }
 
 .legacy-photo {
@@ -900,7 +909,6 @@ iframe {
   }
 
   .hero,
-  .founder-layout,
   .service-grid,
   .location-layout,
   .legacy-photo,
@@ -1055,6 +1063,10 @@ iframe {
     min-height: auto;
     aspect-ratio: 4 / 3;
     border-radius: 18px;
+  }
+
+  .technician-card img {
+    max-height: none;
   }
 
   .legacy-photo {
