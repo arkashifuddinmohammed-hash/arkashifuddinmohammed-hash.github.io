@@ -373,12 +373,10 @@ repairForm.addEventListener("submit", async (event) => {
   const message = buildWhatsAppMessage(formData);
   const sheetPayload = buildSheetPayload(formData);
   const whatsappUrl = `https://wa.me/${shopPhone}?text=${encodeURIComponent(message)}`;
-  const whatsappWindow = window.open("about:blank", "_blank", "noopener");
+  const whatsappWindow = window.open(whatsappUrl, "_blank");
 
   enquirySubmit.disabled = true;
-  submitStatus.textContent = googleSheetWebAppUrl
-    ? "Opening WhatsApp with your data..."
-    : "Opening WhatsApp with your data...";
+  submitStatus.textContent = "Opening WhatsApp with your data...";
 
   notifyIntent("opened_whatsapp", {
     hasModel: Boolean(String(formData.get("model") || "").trim()),
@@ -395,9 +393,7 @@ repairForm.addEventListener("submit", async (event) => {
   }
 
   submitStatus.textContent = "Opening WhatsApp with your data...";
-  if (whatsappWindow) {
-    whatsappWindow.location.href = whatsappUrl;
-  } else {
+  if (!whatsappWindow) {
     window.location.href = whatsappUrl;
   }
   enquirySubmit.disabled = false;
