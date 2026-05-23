@@ -470,6 +470,11 @@ dd {
   font-weight: 700;
 }
 
+.closing-journey {
+  padding-top: 0;
+  padding-bottom: 72px;
+}
+
 .gallery-section {
   padding-top: 80px;
 }
