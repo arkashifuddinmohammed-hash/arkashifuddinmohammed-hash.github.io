@@ -13,10 +13,10 @@
 </head>
 <body class="project-page cat-live layout-5 project-studio-process">
   <nav class="project-nav" aria-label="Project navigation">
-    <a class="brand" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
+    <a class="brand" data-cursor="Home" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
     <div class="nav-actions">
-      <a class="pill-link" href="../index.html#work">Archive</a>
-      <a class="pill-link" href="../index.html#contact">Contact</a>
+      <a class="pill-link" href="../index.html#work" data-cursor="Archive">Archive</a>
+      <a class="pill-link" href="../index.html#contact" data-cursor="Contact">Contact</a>
     </div>
   </nav>
 
@@ -65,8 +65,15 @@
     </section>
     <section class="closing-band">
       <p>The live format keeps the work honest: process, revision, and construction memory stay visible. Studio Process stays connected to sketches, revisions, and decisions while leaving room for drawings, site notes, and expanded documentation.</p>
-      <a class="pill-link" href="../index.html#work">Return to Works</a>
+      <a class="pill-link" href="../index.html#work" data-cursor="Works">Return to Works</a>
     </section>
   </main>
+
+  <div class="project-cursor" aria-hidden="true">
+    <div class="project-cursor-shape"></div>
+    <span class="project-cursor-icon"></span>
+    <span class="project-cursor-label"></span>
+  </div>
+  <script src="project-cursor.js?v=project-cursor-1"></script>
 </body>
 </html>

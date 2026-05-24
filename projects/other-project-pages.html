@@ -12,8 +12,8 @@
 </head>
 <body class="project-page cat-built layout-2">
   <nav class="project-nav" aria-label="Project navigation">
-    <a class="brand" href="../index.html#hero">KM</a>
-    <div class="nav-actions"><a class="pill-link" href="../index.html#work">Archive</a><a class="pill-link" href="../index.html#contact">Contact</a></div>
+    <a class="brand" data-cursor="Home" href="../index.html#hero">KM</a>
+    <div class="nav-actions"><a class="pill-link" href="../index.html#work" data-cursor="Archive">Archive</a><a class="pill-link" href="../index.html#contact" data-cursor="Contact">Contact</a></div>
   </nav>
   <main>
     <section class="project-hero" data-category="Archive">
@@ -23,5 +23,12 @@
       </div>
     </section>
   </main>
+
+  <div class="project-cursor" aria-hidden="true">
+    <div class="project-cursor-shape"></div>
+    <span class="project-cursor-icon"></span>
+    <span class="project-cursor-label"></span>
+  </div>
+  <script src="project-cursor.js?v=project-cursor-1"></script>
 </body>
 </html>
