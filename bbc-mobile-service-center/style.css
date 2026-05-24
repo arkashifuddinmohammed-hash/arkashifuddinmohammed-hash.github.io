@@ -116,30 +116,6 @@ a {
   text-decoration: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  html,
-  body {
-    cursor: url("assets/cursors/gold-cursor.svg") 12 4, auto;
-  }
-
-  a,
-  button,
-  .button,
-  label,
-  input,
-  textarea,
-  select,
-  summary,
-  [role="button"] {
-    cursor: url("assets/cursors/gold-cursor.svg") 12 4, pointer;
-  }
-
-  button:disabled,
-  .button:disabled {
-    cursor: not-allowed;
-  }
-}
-
 button {
   font: inherit;
 }
