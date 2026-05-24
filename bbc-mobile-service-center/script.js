@@ -67,6 +67,7 @@ const enquiry = {
 };
 let currentStep = 0;
 let loaderProgress = 0;
+let repairEnquiryId = "";
 
 function scrollToHashTarget() {
   if (!window.location.hash) return;
@@ -105,6 +106,7 @@ function setChatOpen(isOpen) {
 
 function notifyIntent(stage, details = {}) {
   const payload = {
+    repairEnquiryId,
     stage,
     page: window.location.pathname,
     time: new Date().toISOString(),
@@ -120,9 +122,35 @@ function notifyIntent(stage, details = {}) {
   navigator.sendBeacon?.("/api/repair-event", JSON.stringify(payload));
 }
 
+function createRepairEnquiryId() {
+  const now = new Date();
+  const datePart = [
+    now.getFullYear(),
+    String(now.getMonth() + 1).padStart(2, "0"),
+    String(now.getDate()).padStart(2, "0")
+  ].join("");
+  const timePart = [
+    String(now.getHours()).padStart(2, "0"),
+    String(now.getMinutes()).padStart(2, "0"),
+    String(now.getSeconds()).padStart(2, "0")
+  ].join("");
+  const randomPart = Math.random().toString(36).slice(2, 6).toUpperCase();
+
+  return `BBC-${datePart}-${timePart}-${randomPart}`;
+}
+
+function ensureRepairEnquiryId() {
+  if (!repairEnquiryId) {
+    repairEnquiryId = createRepairEnquiryId();
+  }
+
+  return repairEnquiryId;
+}
+
 function updateReview() {
   const formData = new FormData(repairForm);
   const values = [
+    ["Enquiry ID", ensureRepairEnquiryId()],
     ["Service", enquiry.service || "Not selected"],
     ["Brand", enquiry.brand || "Not selected"],
     ["Model", String(formData.get("model") || "").trim() || "Not mentioned"],
@@ -280,6 +308,7 @@ function preselectFromIntent(intent) {
 }
 
 function buildWhatsAppMessage(formData) {
+  const id = ensureRepairEnquiryId();
   const model = String(formData.get("model") || "").trim();
   const issue = String(formData.get("issue") || "").trim();
   const name = String(formData.get("name") || "").trim();
@@ -290,6 +319,7 @@ function buildWhatsAppMessage(formData) {
   return [
     "Hi BBC Mobile Service Center, I need help with a phone repair.",
     "",
+    `Enquiry ID: ${id}`,
     `Service needed: ${enquiry.service}`,
     `Phone brand: ${enquiry.brand}`,
     `Model: ${model}`,
@@ -304,6 +334,7 @@ function buildWhatsAppMessage(formData) {
 
 function buildSheetPayload(formData) {
   return {
+    enquiryId: ensureRepairEnquiryId(),
     status: "WhatsApp opened",
     service: enquiry.service,
     brand: enquiry.brand,
