@@ -119,7 +119,7 @@ a {
 @media (hover: hover) and (pointer: fine) {
   html,
   body {
-    cursor: url("assets/cursors/gold-cursor.svg") 24 7, auto;
+    cursor: url("assets/cursors/gold-cursor.svg") 18 5, auto;
   }
 
   a,
@@ -131,7 +131,7 @@ a {
   select,
   summary,
   [role="button"] {
-    cursor: url("assets/cursors/gold-cursor.svg") 24 7, pointer;
+    cursor: url("assets/cursors/gold-cursor.svg") 18 5, pointer;
   }
 
   button:disabled,
