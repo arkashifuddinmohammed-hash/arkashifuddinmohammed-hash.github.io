@@ -123,20 +123,10 @@ function notifyIntent(stage, details = {}) {
 }
 
 function createRepairEnquiryId() {
-  const now = new Date();
-  const datePart = [
-    now.getFullYear(),
-    String(now.getMonth() + 1).padStart(2, "0"),
-    String(now.getDate()).padStart(2, "0")
-  ].join("");
-  const timePart = [
-    String(now.getHours()).padStart(2, "0"),
-    String(now.getMinutes()).padStart(2, "0"),
-    String(now.getSeconds()).padStart(2, "0")
-  ].join("");
-  const randomPart = Math.random().toString(36).slice(2, 6).toUpperCase();
+  const timePart = Date.now().toString(36).slice(-2).toUpperCase();
+  const randomPart = Math.random().toString(36).slice(2, 4).toUpperCase();
 
-  return `BBC-${datePart}-${timePart}-${randomPart}`;
+  return `BBC-${timePart}${randomPart}`;
 }
 
 function ensureRepairEnquiryId() {
