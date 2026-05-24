@@ -119,7 +119,7 @@ a {
 @media (hover: hover) and (pointer: fine) {
   html,
   body {
-    cursor: url("assets/cursors/pixel-arrow.svg") 5 3, auto;
+    cursor: url("assets/cursors/gold-cursor.svg") 24 7, auto;
   }
 
   a,
@@ -131,7 +131,7 @@ a {
   select,
   summary,
   [role="button"] {
-    cursor: url("assets/cursors/pixel-hand.svg") 14 4, pointer;
+    cursor: url("assets/cursors/gold-cursor.svg") 24 7, pointer;
   }
 
   button:disabled,
