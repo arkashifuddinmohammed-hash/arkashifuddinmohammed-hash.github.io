@@ -4,6 +4,9 @@ const chatTeaser = document.querySelector(".chat-teaser");
 const chatPanel = document.querySelector(".chat-panel");
 const chatClose = document.querySelector(".chat-close");
 const repairForm = document.querySelector(".repair-form");
+const cursorRing = document.querySelector(".custom-cursor");
+const cursorDot = document.querySelector(".custom-cursor-dot");
+const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
 const contactTriggers = document.querySelectorAll(".contact-trigger");
 const choiceGroups = document.querySelectorAll("[data-choice-group]");
 const steps = Array.from(document.querySelectorAll(".assistant-step"));
@@ -67,12 +70,47 @@ const enquiry = {
 };
 let currentStep = 0;
 let loaderProgress = 0;
+let heroSlideIndex = 0;
 
 function scrollToHashTarget() {
   if (!window.location.hash) return;
 
   const target = document.querySelector(window.location.hash);
   target?.scrollIntoView({ block: "start" });
+}
+
+function showHeroSlide(index) {
+  if (!heroSlides.length) return;
+
+  heroSlideIndex = index % heroSlides.length;
+  heroSlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("active", slideIndex === heroSlideIndex);
+  });
+}
+
+if (heroSlides.length > 1) {
+  setInterval(() => {
+    showHeroSlide(heroSlideIndex + 1);
+  }, 5000);
+}
+
+if (cursorRing && cursorDot && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  window.addEventListener("mousemove", (event) => {
+    cursorRing.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
+    cursorDot.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
+    cursorRing.classList.add("visible");
+    cursorDot.classList.add("visible");
+  });
+
+  window.addEventListener("mouseleave", () => {
+    cursorRing.classList.remove("visible");
+    cursorDot.classList.remove("visible");
+  });
+
+  document.querySelectorAll("a, button, input, textarea, label").forEach((item) => {
+    item.addEventListener("mouseenter", () => cursorRing.classList.add("active"));
+    item.addEventListener("mouseleave", () => cursorRing.classList.remove("active"));
+  });
 }
 
 const loaderTimer = setInterval(() => {
