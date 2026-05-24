@@ -68,6 +68,13 @@ const enquiry = {
 let currentStep = 0;
 let loaderProgress = 0;
 
+function scrollToHashTarget() {
+  if (!window.location.hash) return;
+
+  const target = document.querySelector(window.location.hash);
+  target?.scrollIntoView({ block: "start" });
+}
+
 const loaderTimer = setInterval(() => {
   loaderProgress = Math.min(loaderProgress + 8, 88);
   pageLoader.style.setProperty("--loader-progress", loaderProgress);
@@ -78,6 +85,7 @@ window.addEventListener("load", () => {
   pageLoader.style.setProperty("--loader-progress", 100);
   setTimeout(() => {
     pageLoader.classList.add("done");
+    scrollToHashTarget();
   }, 360);
 });
 
