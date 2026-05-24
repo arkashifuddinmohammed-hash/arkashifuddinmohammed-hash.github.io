@@ -7,58 +7,63 @@
   <meta name="description" content="An entry experience inspired by flower petals and wing-like forms.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="project.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css?v=unique-projects-1">
+  <style>.project-page{--tone:#c48c70;--tone-soft:#c48c702e;--focus-x:72%;--focus-y:42%;--tilt:6deg;}</style>
 </head>
-<body>
-  <main class="project-detail">
-    <section class="project-hero" aria-label="Flower Admin project hero">
-      <video class="project-media" autoplay muted loop playsinline poster="../assets/images/concept4.jpg">
-        <source src="../assets/videos/concept4-preview.mp4" type="video/mp4">
-      </video>
-      <nav class="project-nav" aria-label="Project navigation">
-        <a class="brand" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
-        <a class="back-link" href="../index.html#work">Back to archive</a>
-      </nav>
-      <div class="project-copy">
-        <span class="eyebrow">Concept / Admin</span>
-        <h1 class="project-title">Flower Admin</h1>
-        <p class="project-desc">An entry experience inspired by flower petals and wing-like forms.</p>
-        <div class="project-meta" aria-label="Project metadata">
-          <span>Conceptual</span>
-          <span>Admin</span>
+<body class="project-page cat-concept layout-3 project-flower-admin">
+  <nav class="project-nav" aria-label="Project navigation">
+    <a class="brand" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
+    <div class="nav-actions">
+      <a class="pill-link" href="../index.html#work">Archive</a>
+      <a class="pill-link" href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="project-hero" data-category="Concept">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="project-kicker">Speculative Concept / Admin</span>
+          <h1 class="project-title">Flower Admin</h1>
+          <p class="project-intro">An entry experience inspired by flower petals and wing-like forms. A conceptual page using abstract geometry, imagined systems, and atmospheric speculation.</p>
+        </div>
+        <div class="hero-media">
+          <video autoplay muted loop playsinline poster="../assets/images/concept4.jpg">
+            <source src="../assets/videos/concept4-preview.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-    </section>
-
-    <section class="project-body" aria-label="Project overview">
-      <div>
-        <h2>Spatial atmosphere, material logic, and narrative memory.</h2>
-        <p>An entry experience inspired by flower petals and wing-like forms. This page keeps the project route available while the full case study is being expanded with drawings, process notes, and final visuals.</p>
-        <p>The work is part of Kashif Mohammed's concept archive, focused on architecture as an experience of light, context, movement, and emotional clarity.</p>
+      <div class="fact-strip" aria-label="Project facts">
+        <div class="fact"><span>Category</span><strong>Conceptual</strong></div>
+        <div class="fact"><span>Focus</span><strong>Admin</strong></div>
+        <div class="fact"><span>Scale</span><strong>Layered</strong></div>
+        <div class="fact"><span>Status</span><strong>Archive study</strong></div>
       </div>
-      <aside class="project-side" aria-label="Project details">
-        <dl>
-          <div>
-            <dt>Project</dt>
-            <dd>Flower Admin</dd>
-          </div>
-          <div>
-            <dt>Category</dt>
-            <dd>Conceptual</dd>
-          </div>
-          <div>
-            <dt>Focus</dt>
-            <dd>Admin</dd>
-          </div>
-        </dl>
-      </aside>
+    </section>
+    
+    <section class="case-section split-study">
+      <div class="spec-panel"><img src="../assets/images/concept4.jpg" alt="Flower Admin speculative form study"></div>
+      <div>
+        <span class="section-label">Speculative Logic</span>
+        <h2 class="section-title">Form as a controlled fiction.</h2>
+        <p class="section-copy">An entry experience inspired by flower petals and wing-like forms. Concept pages are allowed to feel more abstract: geometry, scale, and atmosphere carry the idea before the project is resolved into construction.</p>
+      </div>
+    </section>
+    
+    <section class="case-section">
+      <span class="section-label">Method</span>
+      <h2 class="section-title">How the project is read.</h2>
+      <div class="process-grid">
+        <article class="process-item"><span>01</span><h3>Form instinct</h3><p>Flower Admin uses this step to connect admin, atmosphere, and spatial storytelling into one clear direction.</p></article>
+        <article class="process-item"><span>02</span><h3>Spatial fiction</h3><p>Flower Admin uses this step to connect admin, atmosphere, and spatial storytelling into one clear direction.</p></article>
+        <article class="process-item"><span>03</span><h3>Prototype logic</h3><p>Flower Admin uses this step to connect admin, atmosphere, and spatial storytelling into one clear direction.</p></article>
+      </div>
+    </section>
+    <section class="closing-band">
+      <p>The concept remains open-ended, testing how atmosphere can become architectural form. Flower Admin stays connected to petals and wing-like forms while leaving room for drawings, site notes, and expanded documentation.</p>
+      <a class="pill-link" href="../index.html#work">Return to Works</a>
     </section>
   </main>
-
-  <footer class="project-footer">
-    <span>&copy; 2026 Kashif Mohammed</span>
-    <a class="back-link" href="../index.html#contact">Contact</a>
-  </footer>
 </body>
 </html>

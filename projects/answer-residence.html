@@ -7,58 +7,63 @@
   <meta name="description" content="A studio-led interior atmosphere exploring softness, light, and warmth.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="project.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css?v=unique-projects-1">
+  <style>.project-page{--tone:#a98f73;--tone-soft:#a98f732e;--focus-x:62%;--focus-y:36%;--tilt:3deg;}</style>
 </head>
-<body>
-  <main class="project-detail">
-    <section class="project-hero" aria-label="Answer Residence project hero">
-      <video class="project-media" autoplay muted loop playsinline poster="../assets/images/studio2.jpg">
-        <source src="../assets/videos/studio2-preview.mp4" type="video/mp4">
-      </video>
-      <nav class="project-nav" aria-label="Project navigation">
-        <a class="brand" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
-        <a class="back-link" href="../index.html#work">Back to archive</a>
-      </nav>
-      <div class="project-copy">
-        <span class="eyebrow">Studio / Residence</span>
-        <h1 class="project-title">Answer Residence</h1>
-        <p class="project-desc">A studio-led interior atmosphere exploring softness, light, and warmth.</p>
-        <div class="project-meta" aria-label="Project metadata">
-          <span>Answer &amp; Co</span>
-          <span>Residence</span>
+<body class="project-page cat-studio layout-1 project-answer-residence">
+  <nav class="project-nav" aria-label="Project navigation">
+    <a class="brand" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
+    <div class="nav-actions">
+      <a class="pill-link" href="../index.html#work">Archive</a>
+      <a class="pill-link" href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="project-hero" data-category="Studio">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="project-kicker">Answer &amp; Co / Residence</span>
+          <h1 class="project-title">Answer Residence</h1>
+          <p class="project-intro">A studio-led interior atmosphere exploring softness, light, and warmth. A studio-facing page built around identity, process, representation, and spatial storytelling.</p>
+        </div>
+        <div class="hero-media">
+          <video autoplay muted loop playsinline poster="../assets/images/studio2.jpg">
+            <source src="../assets/videos/studio2-preview.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-    </section>
-
-    <section class="project-body" aria-label="Project overview">
-      <div>
-        <h2>Spatial atmosphere, material logic, and narrative memory.</h2>
-        <p>A studio-led interior atmosphere exploring softness, light, and warmth. This page keeps the project route available while the full case study is being expanded with drawings, process notes, and final visuals.</p>
-        <p>The work is part of Kashif Mohammed's studio archive, focused on architecture as an experience of light, context, movement, and emotional clarity.</p>
+      <div class="fact-strip" aria-label="Project facts">
+        <div class="fact"><span>Category</span><strong>Answer &amp; Co</strong></div>
+        <div class="fact"><span>Focus</span><strong>Residence</strong></div>
+        <div class="fact"><span>Scale</span><strong>Medium</strong></div>
+        <div class="fact"><span>Status</span><strong>Archive study</strong></div>
       </div>
-      <aside class="project-side" aria-label="Project details">
-        <dl>
-          <div>
-            <dt>Project</dt>
-            <dd>Answer Residence</dd>
-          </div>
-          <div>
-            <dt>Category</dt>
-            <dd>Answer &amp; Co</dd>
-          </div>
-          <div>
-            <dt>Focus</dt>
-            <dd>Residence</dd>
-          </div>
-        </dl>
-      </aside>
+    </section>
+    
+    <section class="case-section split-study">
+      <div>
+        <span class="section-label">Answer &amp; Co Study</span>
+        <h2 class="section-title">Identity becomes spatial language.</h2>
+        <p class="section-copy">A studio-led interior atmosphere exploring softness, light, and warmth. A studio-facing page built around identity, process, representation, and spatial storytelling.</p>
+      </div>
+      <div class="diagram-panel"><img src="../assets/images/studio2.jpg" alt="Answer Residence visual study"></div>
+    </section>
+    
+    <section class="case-section">
+      <span class="section-label">Method</span>
+      <h2 class="section-title">How the project is read.</h2>
+      <div class="process-grid">
+        <article class="process-item"><span>01</span><h3>Intent</h3><p>Answer Residence uses this step to connect residence, atmosphere, and spatial storytelling into one clear direction.</p></article>
+        <article class="process-item"><span>02</span><h3>Language</h3><p>Answer Residence uses this step to connect residence, atmosphere, and spatial storytelling into one clear direction.</p></article>
+        <article class="process-item"><span>03</span><h3>Output</h3><p>Answer Residence uses this step to connect residence, atmosphere, and spatial storytelling into one clear direction.</p></article>
+      </div>
+    </section>
+    <section class="closing-band">
+      <p>The studio work connects architecture, interiors, visual systems, and narrative design into one practice. Answer Residence stays connected to softness, light, and warmth while leaving room for drawings, site notes, and expanded documentation.</p>
+      <a class="pill-link" href="../index.html#work">Return to Works</a>
     </section>
   </main>
-
-  <footer class="project-footer">
-    <span>&copy; 2026 Kashif Mohammed</span>
-    <a class="back-link" href="../index.html#contact">Contact</a>
-  </footer>
 </body>
 </html>

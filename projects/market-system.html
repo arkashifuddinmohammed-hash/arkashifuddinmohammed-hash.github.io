@@ -7,58 +7,63 @@
   <meta name="description" content="A public realm study around trade, gathering, and everyday exchange.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="project.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css?v=unique-projects-1">
+  <style>.project-page{--tone:#a48866;--tone-soft:#a488662e;--focus-x:34%;--focus-y:52%;--tilt:-4deg;}</style>
 </head>
-<body>
-  <main class="project-detail">
-    <section class="project-hero" aria-label="Market System project hero">
-      <video class="project-media" autoplay muted loop playsinline poster="../assets/images/urban5.jpg">
-        <source src="../assets/videos/urban5-preview.mp4" type="video/mp4">
-      </video>
-      <nav class="project-nav" aria-label="Project navigation">
-        <a class="brand" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
-        <a class="back-link" href="../index.html#work">Back to archive</a>
-      </nav>
-      <div class="project-copy">
-        <span class="eyebrow">Urban / Market</span>
-        <h1 class="project-title">Market System</h1>
-        <p class="project-desc">A public realm study around trade, gathering, and everyday exchange.</p>
-        <div class="project-meta" aria-label="Project metadata">
-          <span>Urban Systems</span>
-          <span>Market</span>
+<body class="project-page cat-urban layout-4 project-market-system">
+  <nav class="project-nav" aria-label="Project navigation">
+    <a class="brand" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
+    <div class="nav-actions">
+      <a class="pill-link" href="../index.html#work">Archive</a>
+      <a class="pill-link" href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="project-hero" data-category="Urban">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="project-kicker">Urban System / Market</span>
+          <h1 class="project-title">Market System</h1>
+          <p class="project-intro">A public realm study around trade, gathering, and everyday exchange. A mapped case study using flows, edges, networks, and civic patterns as the visual language.</p>
+        </div>
+        <div class="hero-media">
+          <video autoplay muted loop playsinline poster="../assets/images/urban5.jpg">
+            <source src="../assets/videos/urban5-preview.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-    </section>
-
-    <section class="project-body" aria-label="Project overview">
-      <div>
-        <h2>Spatial atmosphere, material logic, and narrative memory.</h2>
-        <p>A public realm study around trade, gathering, and everyday exchange. This page keeps the project route available while the full case study is being expanded with drawings, process notes, and final visuals.</p>
-        <p>The work is part of Kashif Mohammed's urban archive, focused on architecture as an experience of light, context, movement, and emotional clarity.</p>
+      <div class="fact-strip" aria-label="Project facts">
+        <div class="fact"><span>Category</span><strong>Urban Systems</strong></div>
+        <div class="fact"><span>Focus</span><strong>Market</strong></div>
+        <div class="fact"><span>Scale</span><strong>Speculative</strong></div>
+        <div class="fact"><span>Status</span><strong>Portfolio study</strong></div>
       </div>
-      <aside class="project-side" aria-label="Project details">
-        <dl>
-          <div>
-            <dt>Project</dt>
-            <dd>Market System</dd>
-          </div>
-          <div>
-            <dt>Category</dt>
-            <dd>Urban Systems</dd>
-          </div>
-          <div>
-            <dt>Focus</dt>
-            <dd>Market</dd>
-          </div>
-        </dl>
-      </aside>
+    </section>
+    
+    <section class="case-section split-study">
+      <div>
+        <span class="section-label">Mapped Reading</span>
+        <h2 class="section-title">Movement becomes the drawing.</h2>
+        <p class="section-copy">A public realm study around trade, gathering, and everyday exchange. This layout borrows the discipline of maps: grids, overlays, edges, and pressure points help the project feel civic instead of object-like.</p>
+      </div>
+      <div class="diagram-panel"><img src="../assets/images/urban5.jpg" alt="Market System urban mapping visual"></div>
+    </section>
+    
+    <section class="case-section">
+      <span class="section-label">Method</span>
+      <h2 class="section-title">How the project is read.</h2>
+      <div class="process-grid">
+        <article class="process-item"><span>01</span><h3>Trace movement</h3><p>Market System uses this step to connect market, atmosphere, and spatial storytelling into one clear direction.</p></article>
+        <article class="process-item"><span>02</span><h3>Locate pressure</h3><p>Market System uses this step to connect market, atmosphere, and spatial storytelling into one clear direction.</p></article>
+        <article class="process-item"><span>03</span><h3>Frame public life</h3><p>Market System uses this step to connect market, atmosphere, and spatial storytelling into one clear direction.</p></article>
+      </div>
+    </section>
+    <section class="closing-band">
+      <p>The project reads the city as layered infrastructure, ritual, movement, and everyday exchange. Market System stays connected to gathering, and everyday exchange while leaving room for drawings, site notes, and expanded documentation.</p>
+      <a class="pill-link" href="../index.html#work">Return to Works</a>
     </section>
   </main>
-
-  <footer class="project-footer">
-    <span>&copy; 2026 Kashif Mohammed</span>
-    <a class="back-link" href="../index.html#contact">Contact</a>
-  </footer>
 </body>
 </html>

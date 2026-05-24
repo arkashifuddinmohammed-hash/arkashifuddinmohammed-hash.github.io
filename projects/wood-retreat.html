@@ -7,58 +7,66 @@
   <meta name="description" content="A warm interior concept using wood, amber light, and quiet surfaces.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="project.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css?v=unique-projects-1">
+  <style>.project-page{--tone:#c7a78d;--tone-soft:#c7a78d2e;--focus-x:34%;--focus-y:52%;--tilt:-4deg;}</style>
 </head>
-<body>
-  <main class="project-detail">
-    <section class="project-hero" aria-label="Wood Retreat project hero">
-      <video class="project-media" autoplay muted loop playsinline poster="../assets/images/interior5.jpg">
-        <source src="../assets/videos/interior5-preview.mp4" type="video/mp4">
-      </video>
-      <nav class="project-nav" aria-label="Project navigation">
-        <a class="brand" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
-        <a class="back-link" href="../index.html#work">Back to archive</a>
-      </nav>
-      <div class="project-copy">
-        <span class="eyebrow">Interiors / Warm Space</span>
-        <h1 class="project-title">Wood Retreat</h1>
-        <p class="project-desc">A warm interior concept using wood, amber light, and quiet surfaces.</p>
-        <div class="project-meta" aria-label="Project metadata">
-          <span>Interiors</span>
-          <span>Warm Space</span>
+<body class="project-page cat-interiors layout-4 project-wood-retreat">
+  <nav class="project-nav" aria-label="Project navigation">
+    <a class="brand" href="../index.html#hero" aria-label="Kashif Mohammed home">KM</a>
+    <div class="nav-actions">
+      <a class="pill-link" href="../index.html#work">Archive</a>
+      <a class="pill-link" href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="project-hero" data-category="Interiors">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="project-kicker">Interior Atmosphere / Warm Space</span>
+          <h1 class="project-title">Wood Retreat</h1>
+          <p class="project-intro">A warm interior concept using wood, amber light, and quiet surfaces. A tactile page built like a material board, balancing texture, warmth, silence, and human scale.</p>
+        </div>
+        <div class="hero-media">
+          <video autoplay muted loop playsinline poster="../assets/images/interior5.jpg">
+            <source src="../assets/videos/interior5-preview.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="fact-strip" aria-label="Project facts">
+        <div class="fact"><span>Category</span><strong>Interiors</strong></div>
+        <div class="fact"><span>Focus</span><strong>Warm Space</strong></div>
+        <div class="fact"><span>Scale</span><strong>Speculative</strong></div>
+        <div class="fact"><span>Status</span><strong>Portfolio study</strong></div>
+      </div>
+    </section>
+    
+    <section class="case-section">
+      <span class="section-label">Material Board</span>
+      <div class="mood-board">
+        <img src="../assets/images/interior5.jpg" alt="Wood Retreat material atmosphere">
+        <div class="mood-notes">
+          <h2 class="section-title">Texture, temperature, and quiet detail.</h2>
+          <p class="section-copy">A warm interior concept using wood, amber light, and quiet surfaces. The page uses a softer composition because interior work is read through touch, lighting, surfaces, and the emotional pace of a room.</p>
+          <div class="swatches" aria-label="Material swatches"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
         </div>
       </div>
     </section>
-
-    <section class="project-body" aria-label="Project overview">
-      <div>
-        <h2>Spatial atmosphere, material logic, and narrative memory.</h2>
-        <p>A warm interior concept using wood, amber light, and quiet surfaces. This page keeps the project route available while the full case study is being expanded with drawings, process notes, and final visuals.</p>
-        <p>The work is part of Kashif Mohammed's interiors archive, focused on architecture as an experience of light, context, movement, and emotional clarity.</p>
+    
+    <section class="case-section">
+      <span class="section-label">Method</span>
+      <h2 class="section-title">How the project is read.</h2>
+      <div class="process-grid">
+        <article class="process-item"><span>01</span><h3>Palette</h3><p>Wood Retreat uses this step to connect warm space, atmosphere, and spatial storytelling into one clear direction.</p></article>
+        <article class="process-item"><span>02</span><h3>Surface rhythm</h3><p>Wood Retreat uses this step to connect warm space, atmosphere, and spatial storytelling into one clear direction.</p></article>
+        <article class="process-item"><span>03</span><h3>Light temperature</h3><p>Wood Retreat uses this step to connect warm space, atmosphere, and spatial storytelling into one clear direction.</p></article>
       </div>
-      <aside class="project-side" aria-label="Project details">
-        <dl>
-          <div>
-            <dt>Project</dt>
-            <dd>Wood Retreat</dd>
-          </div>
-          <div>
-            <dt>Category</dt>
-            <dd>Interiors</dd>
-          </div>
-          <div>
-            <dt>Focus</dt>
-            <dd>Warm Space</dd>
-          </div>
-        </dl>
-      </aside>
+    </section>
+    <section class="closing-band">
+      <p>The interior story is held through material tone, touch, proportion, and softness. Wood Retreat stays connected to light, and quiet surfaces while leaving room for drawings, site notes, and expanded documentation.</p>
+      <a class="pill-link" href="../index.html#work">Return to Works</a>
     </section>
   </main>
-
-  <footer class="project-footer">
-    <span>&copy; 2026 Kashif Mohammed</span>
-    <a class="back-link" href="../index.html#contact">Contact</a>
-  </footer>
 </body>
 </html>
