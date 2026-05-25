@@ -48,7 +48,7 @@ function doPost(event) {
       payload.page || "",
       payload.userAgent || ""
     ]]);
-    formatSheet_(sheet);
+    formatEntryRow_(sheet, entryRow);
 
     if (NOTIFY_EMAILS.length) {
       MailApp.sendEmail({
@@ -57,16 +57,16 @@ function doPost(event) {
         body: [
           "New repair enquiry received.",
           "",
-          `Enquiry ID: ${payload.enquiryId || ""}`,
-          `Service: ${payload.service || ""}`,
-          `Brand: ${payload.brand || ""}`,
-          `Model: ${payload.model || ""}`,
-          `Issue type: ${payload.issueType || ""}`,
-          `Issue: ${payload.issue || ""}`,
-          `Name: ${payload.name || ""}`,
-          `Customer phone: ${payload.customerPhone || ""}`,
-          `Location: ${payload.location || ""}`,
-          `Pick-up: ${payload.pickup ? "Yes" : "No"}`
+          "Enquiry ID: " + (payload.enquiryId || ""),
+          "Service: " + (payload.service || ""),
+          "Brand: " + (payload.brand || ""),
+          "Model: " + (payload.model || ""),
+          "Issue type: " + (payload.issueType || ""),
+          "Issue: " + (payload.issue || ""),
+          "Name: " + (payload.name || ""),
+          "Customer phone: " + (payload.customerPhone || ""),
+          "Location: " + (payload.location || ""),
+          "Pick-up: " + (payload.pickup ? "Yes" : "No")
         ].join("\n")
       });
     }
@@ -99,8 +99,6 @@ function getOrCreateSheet_() {
 
   syncHeaders_(sheet);
 
-  formatSheet_(sheet);
-
   return sheet;
 }
 
@@ -110,6 +108,7 @@ function syncHeaders_(sheet) {
   }
 
   sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
+  formatHeader_(sheet);
 }
 
 function ensureDateSection_(sheet, dateLabel) {
@@ -127,14 +126,13 @@ function ensureDateSection_(sheet, dateLabel) {
   const dateRange = sheet.getRange(2, 1, 1, lastColumn);
   dateRange.merge();
   dateRange.setValue(dateLabel);
+  formatDateRow_(sheet, 2);
   return 3;
 }
 
-function formatSheet_(sheet) {
+function formatHeader_(sheet) {
   const lastColumn = HEADERS.length;
-  const lastRow = Math.max(sheet.getLastRow(), 1);
   const headerRange = sheet.getRange(1, 1, 1, lastColumn);
-  const tableRange = sheet.getRange(1, 1, lastRow, lastColumn);
 
   sheet.setFrozenRows(1);
   if (sheet.getFilter()) {
@@ -147,34 +145,28 @@ function formatSheet_(sheet) {
     .setFontWeight("bold")
     .setHorizontalAlignment("center")
     .setVerticalAlignment("middle");
+}
 
-  tableRange
+function formatDateRow_(sheet, row) {
+  sheet.getRange(row, 1, 1, HEADERS.length)
+    .setBackground("#fffaf1")
+    .setFontColor("#070707")
+    .setFontWeight("bold")
+    .setHorizontalAlignment("left")
     .setBorder(true, true, true, true, true, true, "#eadcc4", SpreadsheetApp.BorderStyle.SOLID)
     .setVerticalAlignment("top")
     .setWrap(true);
+}
 
-  if (lastRow > 1) {
-    for (let row = 2; row <= lastRow; row++) {
-      const firstCell = sheet.getRange(row, 1);
-      const value = firstCell.getValue();
-      const rowRange = sheet.getRange(row, 1, 1, lastColumn);
-      const isDateRow = typeof value === "string" && /^\d{1,2}\s[A-Za-z]+\s\d{4}$/.test(value);
-
-      if (isDateRow) {
-        rowRange
-          .setBackground("#fffaf1")
-          .setFontColor("#070707")
-          .setFontWeight("bold")
-          .setHorizontalAlignment("left");
-      } else {
-        rowRange
-          .setBackground(row % 2 === 0 ? "#ffffff" : "#fffaf1")
-          .setFontColor("#070707")
-          .setFontWeight("normal")
-          .setHorizontalAlignment("left");
-      }
-    }
-  }
+function formatEntryRow_(sheet, row) {
+  sheet.getRange(row, 1, 1, HEADERS.length)
+    .setBackground(row % 2 === 0 ? "#ffffff" : "#fffaf1")
+    .setFontColor("#070707")
+    .setFontWeight("normal")
+    .setHorizontalAlignment("left")
+    .setBorder(true, true, true, true, true, true, "#eadcc4", SpreadsheetApp.BorderStyle.SOLID)
+    .setVerticalAlignment("top")
+    .setWrap(true);
 
   sheet.setColumnWidth(1, 145);
   sheet.setColumnWidth(2, 190);
