@@ -97,6 +97,7 @@ setTimeout(() => {
 function setChatOpen(isOpen) {
   chatPanel.hidden = !isOpen;
   chatToggle.setAttribute("aria-expanded", String(isOpen));
+  document.body.classList.toggle("chat-open", isOpen);
 
   if (isOpen) {
     chatTeaser.classList.add("hidden");

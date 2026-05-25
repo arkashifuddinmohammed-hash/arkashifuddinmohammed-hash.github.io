@@ -31,6 +31,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 .page-loader {
@@ -118,6 +120,7 @@ a {
 
 button {
   font: inherit;
+  touch-action: manipulation;
 }
 
 a,
@@ -782,6 +785,7 @@ iframe {
   color: var(--ink);
   font-size: 13px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .choice-grid button.selected {
@@ -937,12 +941,12 @@ iframe {
 
 @media (max-width: 640px) {
   body {
-    padding-bottom: 78px;
+    padding-bottom: calc(78px + env(safe-area-inset-bottom));
   }
 
   .site-header {
     min-height: 54px;
-    padding: 0 16px;
+    padding: 0 max(16px, env(safe-area-inset-left)) 0 max(16px, env(safe-area-inset-right));
   }
 
   .brand span:last-child {
@@ -972,7 +976,7 @@ iframe {
 
   h1 {
     margin-bottom: 14px;
-    font-size: 38px;
+    font-size: 36px;
     line-height: 1.04;
   }
 
@@ -993,7 +997,7 @@ iframe {
   .hero-actions,
   .contact-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     width: 100%;
     margin-top: 22px;
@@ -1061,12 +1065,15 @@ iframe {
 
   .founder-card img {
     min-height: auto;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     border-radius: 18px;
+    object-position: center top;
   }
 
   .technician-card img {
+    aspect-ratio: 4 / 3;
     max-height: none;
+    object-position: center;
   }
 
   .legacy-photo {
@@ -1143,45 +1150,66 @@ iframe {
 
   .chat-toggle {
     right: 16px;
-    bottom: 86px;
+    bottom: calc(86px + env(safe-area-inset-bottom));
     min-width: 118px;
     height: 46px;
   }
 
   .chat-teaser {
     right: 14px;
-    bottom: 136px;
+    bottom: calc(136px + env(safe-area-inset-bottom));
     max-width: min(280px, calc(100vw - 28px));
   }
 
   .chat-panel {
-    right: 12px;
-    bottom: 140px;
-    width: calc(100vw - 24px);
-    max-height: calc(100vh - 160px);
-    border-radius: 20px;
+    left: 10px;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    width: auto;
+    max-height: calc(100dvh - 20px - env(safe-area-inset-bottom));
+    border-radius: 22px;
   }
 
   .chat-form {
-    max-height: calc(100vh - 240px);
+    max-height: calc(100dvh - 112px - env(safe-area-inset-bottom));
     padding: 14px;
+    overscroll-behavior: contain;
   }
 
   .choice-grid,
-  .choice-grid.compact,
   .form-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .choice-grid.compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-list div {
+    grid-template-columns: 92px 1fr;
   }
 
   .step-actions {
     grid-template-columns: 1fr;
   }
 
+  body.chat-open {
+    overflow: hidden;
+  }
+
+  body.chat-open .mobile-action-bar,
+  body.chat-open .chat-toggle,
+  body.chat-open .chat-teaser {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
   .mobile-action-bar {
     position: fixed;
     left: 10px;
     right: 10px;
-    bottom: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
     z-index: 29;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1216,18 +1244,18 @@ iframe {
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
-    padding: 24px 16px 34px;
+    padding: 24px 16px calc(34px + env(safe-area-inset-bottom));
   }
 }
 
 @media (max-width: 380px) {
   h1 {
-    font-size: 34px;
+    font-size: 32px;
   }
 
-  .hero-actions,
-  .contact-actions {
+  .review-list div {
     grid-template-columns: 1fr;
+    gap: 2px;
   }
 
   .nav-call {
