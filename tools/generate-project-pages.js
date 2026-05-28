@@ -102,6 +102,48 @@ function chips(project, detail) {
   return `<div class="art-meta-row"><span class="art-chip">${esc(project.meta1)}</span><span class="art-chip">${esc(project.meta2)}</span><span class="art-chip">${esc(detail.scale)}</span><span class="art-chip">${esc(detail.status)}</span></div>`;
 }
 
+function galleryImages(project, index) {
+  const countPattern = {
+    built: [5, 4, 6, 3, 7, 4],
+    interiors: [6, 5, 4, 7, 3, 5],
+    urban: [4, 6, 5, 7, 4, 3],
+    research: [3, 5, 6, 4, 7, 5],
+    visual: [8, 5, 7, 6, 4, 8],
+    concept: [5, 3, 6, 4, 7, 5],
+    live: [4, 7, 5, 6, 3, 5],
+    studio: [6, 4, 5, 7, 3, 6]
+  };
+  const count = countPattern[project.category][index % 6];
+  const images = [`../${project.image}`];
+
+  for (let offset = 1; images.length < count; offset += 1) {
+    images.push(altImage(project.category, index, offset));
+  }
+
+  return images;
+}
+
+function gallerySection(project, index) {
+  const images = galleryImages(project, index);
+  const layouts = ["mosaic", "stacked", "rail", "offset", "dense", "calm"];
+  const galleryLayout = layouts[index % layouts.length];
+  const plateTypes = ["major", "tall", "wide", "square", "detail", "wide", "tall", "square"];
+
+  return `<section class="art-section project-gallery gallery-${galleryLayout}">
+    <div class="gallery-intro">
+      <span class="art-kicker">Image Set / ${images.length} Plates</span>
+      <h2 class="art-title">A variable visual record.</h2>
+      <p class="art-copy">This project carries ${images.length} image plates for now. The first plate holds the major image, and the following plates act as replaceable placeholders for final drawings, renders, site photos, process frames, or material studies.</p>
+    </div>
+    <div class="gallery-grid" aria-label="${esc(project.title)} image set">
+      ${images.map((src, imageIndex) => `<figure class="gallery-plate plate-${plateTypes[imageIndex % plateTypes.length]}">
+        <img src="${esc(src)}" alt="${esc(project.title)} image plate ${imageIndex + 1}">
+        <figcaption>${String(imageIndex + 1).padStart(2, "0")} / ${imageIndex === 0 ? "Major image" : "Supporting image"}</figcaption>
+      </figure>`).join("")}
+    </div>
+  </section>`;
+}
+
 function hero(project, index, layout, detail) {
   const voice = voices[project.category];
   const head = `<span class="art-kicker">${esc(voice[0])} / ${esc(project.meta2)}</span><h1 class="art-title">${esc(project.title)}</h1><p class="art-copy">${esc(project.desc)} ${esc(voice[1])}</p>${chips(project, detail)}`;
@@ -178,7 +220,7 @@ function page(project, index) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="project.css?v=project-layouts-2">
+  <link rel="stylesheet" href="project.css?v=project-layouts-3">
   <style>${style}</style>
 </head>
 <body class="project-page cat-${esc(project.category)} layout-${esc(layout)} project-${esc(slug(project.title))}">
@@ -192,6 +234,7 @@ function page(project, index) {
   <main>
     ${hero(project, index, layout, detail)}
     ${methodSection(project)}
+    ${gallerySection(project, index)}
     ${coda(project, detail)}
   </main>
   ${cursorMarkup}
@@ -217,7 +260,7 @@ fs.writeFileSync(
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Project Archive | Kashif Mohammed</title>
-  <link rel="stylesheet" href="project.css?v=project-layouts-2">
+  <link rel="stylesheet" href="project.css?v=project-layouts-3">
 </head>
 <body class="project-page cat-built layout-quiet">
   <nav class="project-nav" aria-label="Project navigation">
@@ -235,6 +278,20 @@ fs.writeFileSync(
         <p class="art-copy">A holding route for additional architecture, interiors, research, visual systems, and studio work.</p>
       </div>
       <div class="art-media"><img src="../assets/images/built1.jpg" alt="Project archive atmosphere"></div>
+    </section>
+    <section class="art-section project-gallery gallery-calm">
+      <div class="gallery-intro">
+        <span class="art-kicker">Image Set / 5 Plates</span>
+        <h2 class="art-title">Archive placeholders.</h2>
+        <p class="art-copy">This route keeps a small variable image set ready for future archive material.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-plate plate-major"><img src="../assets/images/built1.jpg" alt="Archive plate 1"><figcaption>01 / Major image</figcaption></figure>
+        <figure class="gallery-plate plate-tall"><img src="../assets/images/built2.jpg" alt="Archive plate 2"><figcaption>02 / Supporting image</figcaption></figure>
+        <figure class="gallery-plate plate-wide"><img src="../assets/images/built3.jpg" alt="Archive plate 3"><figcaption>03 / Supporting image</figcaption></figure>
+        <figure class="gallery-plate plate-square"><img src="../assets/images/built4.jpg" alt="Archive plate 4"><figcaption>04 / Supporting image</figcaption></figure>
+        <figure class="gallery-plate plate-detail"><img src="../assets/images/built5.jpg" alt="Archive plate 5"><figcaption>05 / Supporting image</figcaption></figure>
+      </div>
     </section>
   </main>
   ${cursorMarkup}

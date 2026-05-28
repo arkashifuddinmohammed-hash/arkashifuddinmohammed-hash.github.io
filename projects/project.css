@@ -1238,6 +1238,196 @@ PROJECT-SPECIFIC COMPOSITION BLUEPRINTS
     line-height: 1;
 }
 
+.project-gallery {
+    background:
+        linear-gradient(180deg, rgba(245, 242, 236, 0.035), transparent 22%),
+        var(--rich-black);
+}
+
+.gallery-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.44fr);
+    gap: clamp(24px, 5vw, 76px);
+    align-items: end;
+    margin-bottom: clamp(30px, 5vw, 70px);
+}
+
+.gallery-intro .art-title {
+    font-size: clamp(3.1rem, 7vw, 7.6rem);
+}
+
+.gallery-grid {
+    display: grid;
+    gap: clamp(12px, 1.6vw, 22px);
+}
+
+.gallery-plate {
+    position: relative;
+    min-height: 260px;
+    overflow: hidden;
+    border: 1px solid var(--line-light);
+    background: rgba(245, 242, 236, 0.045);
+}
+
+.gallery-plate img {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+    object-position: var(--image-focus, center);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.gallery-plate::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 58%, rgba(11, 13, 14, 0.62));
+    pointer-events: none;
+}
+
+.gallery-plate figcaption {
+    position: absolute;
+    left: 16px;
+    bottom: 14px;
+    z-index: 1;
+    color: var(--paper);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.gallery-plate:hover img {
+    transform: scale(1.035);
+    opacity: 0.86;
+}
+
+.plate-major {
+    min-height: clamp(420px, 68vh, 760px);
+}
+
+.plate-wide {
+    min-height: clamp(270px, 36vh, 430px);
+}
+
+.plate-tall {
+    min-height: clamp(420px, 62vh, 720px);
+}
+
+.plate-square,
+.plate-detail {
+    min-height: clamp(260px, 32vw, 430px);
+}
+
+.gallery-mosaic .gallery-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.gallery-mosaic .gallery-plate {
+    grid-column: span 4;
+}
+
+.gallery-mosaic .plate-major {
+    grid-column: span 8;
+    grid-row: span 2;
+}
+
+.gallery-mosaic .plate-wide {
+    grid-column: span 6;
+}
+
+.gallery-mosaic .plate-tall {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+.gallery-stacked .gallery-grid {
+    grid-template-columns: minmax(0, 0.78fr) minmax(260px, 0.42fr);
+    align-items: start;
+}
+
+.gallery-stacked .plate-major {
+    grid-row: span 3;
+}
+
+.gallery-stacked .plate-wide,
+.gallery-stacked .plate-square,
+.gallery-stacked .plate-detail {
+    min-height: 240px;
+}
+
+.gallery-rail .gallery-grid {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(260px, 38vw);
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+}
+
+.gallery-rail .gallery-plate {
+    scroll-snap-align: start;
+}
+
+.gallery-rail .plate-major {
+    grid-column: auto;
+    grid-row: auto;
+    min-width: min(78vw, 920px);
+}
+
+.gallery-offset .gallery-grid {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    align-items: start;
+}
+
+.gallery-offset .gallery-plate {
+    grid-column: span 4;
+}
+
+.gallery-offset .plate-major {
+    grid-column: 1 / span 6;
+}
+
+.gallery-offset .gallery-plate:nth-child(2) {
+    grid-column: 7 / span 4;
+    margin-top: clamp(42px, 8vw, 120px);
+}
+
+.gallery-offset .gallery-plate:nth-child(3) {
+    grid-column: 2 / span 3;
+}
+
+.gallery-offset .gallery-plate:nth-child(4) {
+    grid-column: 5 / span 5;
+    margin-top: clamp(24px, 5vw, 70px);
+}
+
+.gallery-dense .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.gallery-dense .plate-major {
+    grid-column: span 2;
+}
+
+.gallery-calm .gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 1120px;
+    margin-inline: auto;
+}
+
+.gallery-calm .gallery-plate {
+    min-height: clamp(340px, 56vh, 720px);
+}
+
+.gallery-calm .gallery-plate:not(:first-child) {
+    width: min(82%, 920px);
+}
+
+.gallery-calm .gallery-plate:nth-child(even) {
+    margin-left: auto;
+}
+
 @media (max-width: 980px) {
     .layout-monolith .project-artboard,
     .layout-split-tall .project-artboard,
@@ -1249,7 +1439,8 @@ PROJECT-SPECIFIC COMPOSITION BLUEPRINTS
     .layout-site-log .project-artboard,
     .layout-manifesto .project-artboard,
     .layout-scroll .project-artboard,
-    .project-coda {
+    .project-coda,
+    .gallery-intro {
         grid-template-columns: 1fr;
     }
 
@@ -1265,6 +1456,29 @@ PROJECT-SPECIFIC COMPOSITION BLUEPRINTS
 
     .layout-cinema .film-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-mosaic .gallery-grid,
+    .gallery-stacked .gallery-grid,
+    .gallery-offset .gallery-grid,
+    .gallery-dense .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-mosaic .gallery-plate,
+    .gallery-mosaic .plate-major,
+    .gallery-mosaic .plate-wide,
+    .gallery-mosaic .plate-tall,
+    .gallery-stacked .plate-major,
+    .gallery-offset .gallery-plate,
+    .gallery-offset .plate-major,
+    .gallery-offset .gallery-plate:nth-child(2),
+    .gallery-offset .gallery-plate:nth-child(3),
+    .gallery-offset .gallery-plate:nth-child(4),
+    .gallery-dense .plate-major {
+        grid-column: auto;
+        grid-row: auto;
+        margin-top: 0;
     }
 }
 
@@ -1296,5 +1510,28 @@ PROJECT-SPECIFIC COMPOSITION BLUEPRINTS
 
     .project-coda-list strong {
         font-size: 1.5rem;
+    }
+
+    .gallery-mosaic .gallery-grid,
+    .gallery-stacked .gallery-grid,
+    .gallery-offset .gallery-grid,
+    .gallery-dense .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-rail .gallery-grid {
+        grid-auto-columns: minmax(76vw, 1fr);
+    }
+
+    .gallery-calm .gallery-plate:not(:first-child) {
+        width: 100%;
+    }
+
+    .plate-major,
+    .plate-tall,
+    .plate-wide,
+    .plate-square,
+    .plate-detail {
+        min-height: 320px;
     }
 }
